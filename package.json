@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "The website of Patrick Laing.",
   "main": "index.js",
-  "author": "Laura Brown",
+  "author": "Laura Brown <laura@laurabrown.xyz> (https://laurabrown.xyz)",
   "license": "MIT",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/1aurabrown/patrick-laing-splash.git"
+  },
   "scripts": {
     "start": "parcel src/index.pug",
     "build": "parcel build src/index.pug --public-url ./"
