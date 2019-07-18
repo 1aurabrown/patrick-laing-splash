@@ -1,0 +1,8 @@
+{
+  "name": "patrick-laing",
+  "version": "1.0.0",
+  "description": "The website of Patrick Laing.",
+  "main": "index.js",
+  "author": "Laura Brown",
+  "license": "MIT"
+}
