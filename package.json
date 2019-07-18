@@ -4,5 +4,8 @@
   "description": "The website of Patrick Laing.",
   "main": "index.js",
   "author": "Laura Brown",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel index.html"
+  }
 }
