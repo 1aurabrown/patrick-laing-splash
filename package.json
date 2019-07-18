@@ -7,5 +7,8 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel index.html"
+  },
+  "devDependencies": {
+    "node-sass": "^4.12.0"
   }
 }
