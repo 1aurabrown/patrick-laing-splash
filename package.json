@@ -6,11 +6,15 @@
   "author": "Laura Brown",
   "license": "MIT",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html --public-url ./"
+    "start": "parcel src/index.pug",
+    "build": "parcel build src/index.pug --public-url ./"
   },
   "devDependencies": {
     "cssnano": "^4.1.10",
-    "node-sass": "^4.12.0"
+    "node-sass": "^4.12.0",
+    "pug": "^2.0.4"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1"
   }
 }

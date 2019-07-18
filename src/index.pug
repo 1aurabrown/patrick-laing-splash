@@ -1,0 +1,27 @@
+include ./mixins/footer.pug
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    title #{general.title}
+    description #{general.description}
+  body
+    .split
+      .sans-serif.split-half.split-half--left('data-title'!=left.title)
+        .split-half__text
+          h1.split-half__page-title= general.title
+          h2.split-half__section-title.js-section-title
+        video.split-half__video(src!=left.videoURL)
+        +footer(contact)
+
+      .serif.split-half.split-half--right('data-title'!=right.title)
+        .split-half__text
+          div.split-half__page-title= general.title
+          h2.split-half__section-title.js-section-title
+        video.split-half__video(src!=right.videoURL)
+        +footer(contact)
+
+
+
+    script(src="index.js")
