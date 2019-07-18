@@ -1,4 +1,5 @@
-import './styles/index.scss';
+import '../styles/index.scss';
+import codedBy from './coded-by'
 import $ from 'jquery';
 
 const classes = {
@@ -13,6 +14,7 @@ const selectors = {
   active: `.${classes.active}`,
 }
 $(document).ready(() => {
+  codedBy();
   const $container = $(selectors.container);
   $container.on('mouseenter', selectors.half, (e) => {
     const $half = $(selectors.sectionTitle, $container);
