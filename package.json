@@ -6,8 +6,8 @@
   "author": "Laura Brown <laura@laurabrown.xyz> (https://laurabrown.xyz)",
   "license": "MIT",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/1aurabrown/patrick-laing-splash.git"
+    "type": "git",
+    "url": "https://github.com/1aurabrown/patrick-laing-splash.git"
   },
   "scripts": {
     "start": "parcel src/index.pug",
@@ -16,6 +16,7 @@
   "devDependencies": {
     "cssnano": "^4.1.10",
     "node-sass": "^4.12.0",
+    "parcel-bundler": "^1.12.3",
     "pug": "^2.0.4"
   },
   "dependencies": {
