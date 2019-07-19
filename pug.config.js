@@ -1,3 +1,4 @@
+const fs = require('fs');
 module.exports = {
   locals: {
     general: {
@@ -7,11 +8,13 @@ module.exports = {
     },
     left: {
       title: "Products",
-      videoURL: ""
+      videos: [],
+      images: []
     },
     right: {
       title: "Rings",
-      videoURL: ""
+      videos: [],
+      images: []
     },
     contact: {
       linkText: "Contact",

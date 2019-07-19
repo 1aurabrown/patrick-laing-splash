@@ -1,4 +1,19 @@
-$desktop-padding: 4rem;
+$desktop-padding: 5rem;
+$mobile-padding: 2.5rem;
+$credits-spacing: 1.5rem;
+
+@mixin desktop {
+  @media screen and (min-width: 769px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -13,12 +28,41 @@ body {
   color: black;
   font-size: 6rem;
 }
-.serif {
+@mixin serif() {
   font-family: serif;
 }
-.sans-serif {
+@mixin sans-serif() {
   font-family: sans-serif;
 }
+.serif {
+  @include serif();
+  @include mobile {
+    font-size: 4.9rem;
+    line-height: 5.6rem;
+  }
+  @include desktop() {
+    font-size: 6.2rem;
+    line-height: 6.8rem;
+  }
+}
+.sans-serif {
+  @include sans-serif();
+  @include mobile {
+    font-size: 5.2rem;
+    line-height: 5.6rem;
+  }
+
+  @include desktop {
+    font-size: 5.9rem;
+    line-height: 7.3rem;
+  }
+}
+.sans-serif-small-uppercase {
+  @include sans-serif();
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
 h1, h2, h3, h4, h5 {
   font-weight: normal;
   font-size: unset;
@@ -45,18 +89,29 @@ a, a:visited, a:active, a:focus {
   cursor: pointer;
   &--left {
     clip-path: inset(0 50% 0 0);
+
+    &.full-width {
+      @include desktop() {
+        clip-path: inset(0 $desktop-padding * 2 0 0);
+      }
+      @include mobile() {
+        clip-path: inset(0 $mobile-padding * 2 0 0);
+      }
+    }
   }
   &--right {
-    clip-path: inset(0 0 0 50%)
-  }
-  &.full-width {
-    clip-path: inset(0 0 0 0);
+    clip-path: inset(0 0 0 50%);
+    &.full-width {
+      @include desktop() {
+        clip-path: inset(0 0 0 $desktop-padding * 2);
+      }
+      @include mobile() {
+        clip-path: inset(0 0 0 $mobile-padding * 2);
+      }
+    }
   }
   &.front {
     z-index: 1;
-  }
-  &__section-title {
-    margin: 1.2rem 0;
   }
   &__text {
     clip: rect(top, right, bottom, left);

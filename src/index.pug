@@ -8,19 +8,22 @@ html(lang="en")
     title #{general.title}
     description #{general.description}
   body
+    .abc
+      - console.log(videos)
     .split
       .sans-serif.split-half.split-half--left('data-title'!=left.title)
         .split-half__text
           h1.split-half__page-title= general.title
           h2.split-half__section-title.js-section-title
-        video.split-half__video(src!=left.videoURL)
+          .all= left.videos
+        div.split-half__video(src!='')= left.videos
         +footer(contact)
 
       .serif.split-half.split-half--right('data-title'!=right.title)
         .split-half__text
           div.split-half__page-title= general.title
           h2.split-half__section-title.js-section-title
-        video.split-half__video(src!=right.videoURL)
+        div.split-half__video(src!='')= right.videos
         +footer(contact)
 
 
