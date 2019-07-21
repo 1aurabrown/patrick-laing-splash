@@ -1,0 +1,187 @@
+@font-face {
+  font-family: "SangBleu Kingdom Light";
+  src: url("/SangBleuKingdom-Light-WebS.dfdeab91.eot");
+  src: url("/SangBleuKingdom-Light-WebS.dfdeab91.eot#iefix") format("embedded-opentype"), url("/SangBleuKingdom-Light-WebS.5c9cbbb3.woff2") format("woff2"), url("/SangBleuKingdom-Light-WebS.d4b24fe7.woff") format("woff"), url("/SangBleuKingdom-Light-WebS.05d5af03.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "SuisseIntl Light S";
+  src: url("/SuisseIntl-Light-WebS.88fe6c5f.eot");
+  src: url("/SuisseIntl-Light-WebS.88fe6c5f.eot#iefix") format("embedded-opentype"), url("/SuisseIntl-Light-WebS.7d4202bf.woff2") format("woff2"), url("/SuisseIntl-Light-WebS.f65fabf2.woff") format("woff"), url("/SuisseIntl-Light-WebS.cfaa2446.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+* {
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 100%;
+  background: black; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  color: white;
+  font-size: 6rem;
+  white-space: nowrap; }
+
+.header--serif {
+  font-family: "SangBleu Kingdom Light", serif;
+  text-transform: uppercase; }
+  @media screen and (max-width: 549px) {
+    .header--serif {
+      font-size: 2.45rem;
+      line-height: 2.8rem; } }
+  @media screen and (min-width: 550px) and (max-width: 768px) {
+    .header--serif {
+      font-size: 4.9rem;
+      line-height: 5.6rem; } }
+  @media screen and (min-width: 769px) {
+    .header--serif {
+      font-size: 5.9rem;
+      line-height: 6.8rem;
+      letter-spacing: .1rem; } }
+
+.header--sans-serif {
+  font-family: "SuisseIntl Light S", sans-serif;
+  text-transform: uppercase; }
+  @media screen and (max-width: 549px) {
+    .header--sans-serif {
+      font-size: 2.6rem;
+      line-height: 2.8rem; } }
+  @media screen and (min-width: 550px) and (max-width: 768px) {
+    .header--sans-serif {
+      font-size: 5.2rem;
+      line-height: 5.6rem; } }
+  @media screen and (min-width: 769px) {
+    .header--sans-serif {
+      font-size: 6.2rem;
+      line-height: 6.8rem;
+      letter-spacing: .1rem; } }
+
+.sans-serif-small {
+  font-family: "SuisseIntl Light S", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  line-height: 1; }
+
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+  font-size: unset;
+  line-height: unset;
+  margin: 0;
+  padding: 0;
+  text-align: center; }
+
+a, a:visited, a:active, a:focus {
+  color: inherit;
+  text-decoration: none; }
+
+.split {
+  height: 100%; }
+
+.split-half {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: clip-path .25s ease-in-out;
+  cursor: pointer; }
+  .split-half--left {
+    clip-path: inset(0 50% 0 0); }
+    @media screen and (min-width: 769px) {
+      .split-half--left.full-width {
+        clip-path: inset(0 10rem 0 0); } }
+  @media screen and (min-width: 769px) and (hover: hover) {
+    .split-half--left.full-width {
+      clip-path: inset(0 15rem 0 0); }
+      .split-half--left.full-width:hover {
+        clip-path: inset(0 10rem 0 0); } }
+    @media screen and (min-width: 550px) and (max-width: 768px) {
+      .split-half--left.full-width {
+        clip-path: inset(0 5rem 0 0); } }
+  @media screen and (min-width: 550px) and (max-width: 768px) and (hover: hover) {
+    .split-half--left.full-width {
+      clip-path: inset(0 7.5rem 0 0); }
+      .split-half--left.full-width:hover {
+        clip-path: inset(0 5rem 0 0); } }
+    @media screen and (max-width: 549px) {
+      .split-half--left.full-width {
+        clip-path: inset(0 2.5rem 0 0); } }
+  @media screen and (max-width: 549px) and (hover: hover) {
+    .split-half--left.full-width {
+      clip-path: inset(0 3.75rem 0 0); }
+      .split-half--left.full-width:hover {
+        clip-path: inset(0 2.5rem 0 0); } }
+  .split-half--right {
+    clip-path: inset(0 0 0 50%); }
+    @media screen and (min-width: 769px) {
+      .split-half--right.full-width {
+        clip-path: inset(0 0 0 10rem); } }
+  @media screen and (min-width: 769px) and (hover: hover) {
+    .split-half--right.full-width {
+      clip-path: inset(0 0 0 15rem); }
+      .split-half--right.full-width:hover {
+        clip-path: inset(0 0 0 10rem); } }
+    @media screen and (min-width: 550px) and (max-width: 768px) {
+      .split-half--right.full-width {
+        clip-path: inset(0 0 0 5rem); } }
+  @media screen and (min-width: 550px) and (max-width: 768px) and (hover: hover) {
+    .split-half--right.full-width {
+      clip-path: inset(0 0 0 7.5rem); }
+      .split-half--right.full-width:hover {
+        clip-path: inset(0 0 0 5rem); } }
+    @media screen and (max-width: 549px) {
+      .split-half--right.full-width {
+        clip-path: inset(0 0 0 2.5rem); } }
+  @media screen and (max-width: 549px) and (hover: hover) {
+    .split-half--right.full-width {
+      clip-path: inset(0 0 0 3.75rem); }
+      .split-half--right.full-width:hover {
+        clip-path: inset(0 0 0 2.5rem); } }
+  .split-half.front {
+    z-index: 1; }
+  .split-half__text {
+    clip: rect(top, right, bottom, left);
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    padding-top: 5rem; }
+  .split-half__media {
+    width: 100%;
+    height: 100%; }
+    .split-half--left .split-half__media {
+      background: #cc4422; }
+    .split-half--right .split-half__media {
+      background: #3355ff; }
+    .split-half__media__item {
+      width: 100%;
+      height: 100%;
+      display: none; }
+      .split-half__media__item--image {
+        background-position: center center;
+        background-repeat: repeat;
+        background-size: contain; }
+      .split-half__media__item--video {
+        object-fit: cover; }
+      .split-half__media__item--active {
+        display: block; }
+  .split-half__footer {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    padding-bottom: 5rem; }
+
+
+/*# sourceMappingURL=/scripts.bcf3243b.css.map */

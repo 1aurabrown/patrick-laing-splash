@@ -12,7 +12,7 @@ html(lang="en")
   body
     .abc
     .split
-      .sans-serif.split-half.split-half--left('data-title'!=left.title)
+      .header.header--sans-serif.split-half.split-half--left('data-title'!=left.title)
         .split-half__text
           h1.split-half__page-title= general.title
           h2.split-half__section-title.js-section-title
@@ -23,17 +23,15 @@ html(lang="en")
             +video(left.videoPath, videoFileName)
         +footer(contact)
 
-      .serif.split-half.split-half--right('data-title'!=right.title)
+      .header.header--serif.split-half.split-half--right('data-title'!=right.title)
         .split-half__text
           div.split-half__page-title= general.title
           h2.split-half__section-title.js-section-title
         .split-half__media
           each imageFileName, index in right.images
             +image(right.imagePath, imageFileName)
-          // each videoFileName in left.videos
-          //   +video(right.videoPath, videoFileName)
+          each videoFileName in right.videos
+            +video(left.videoPath, videoFileName)
         +footer(contact)
-
-
 
     script(src="scripts/index.js")

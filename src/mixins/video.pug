@@ -1,6 +1,6 @@
 mixin video(videoPath, videoFileName)
-  video.split-half__media__item.split-half__media__item--video(autoplay muted loop)
+  video.split-half__media__item.split-half__media__item--video(muted preload data-type="video")
     source(
       src!=videoPath+videoFileName
-      type!="video/"+videoFileName.split('.')[-1]
+      type!="video/"+videoFileName.split('.')[1]
     )

@@ -1,6 +1,28 @@
 $desktop-padding: 5rem;
-$mobile-padding: 2.5rem;
-$credits-spacing: 1.5rem;
+$tablet-padding: 2.5rem;
+$mobile-padding: 1.25rem;
+
+@font-face {
+  font-family: "SangBleu Kingdom Light";
+  src: url('../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.eot');
+  src: url('../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.eot#iefix') format("embedded-opentype"),
+       url('../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.woff2') format("woff2"),
+       url('../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.woff') format("woff"),
+       url('../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SuisseIntl Light S";
+  src: url('../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.eot');
+  src: url('../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.eot#iefix') format("embedded-opentype"),
+       url('../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.woff2') format("woff2"),
+       url('../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.woff') format("woff"),
+       url('../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 @mixin desktop {
   @media screen and (min-width: 769px) {
@@ -8,12 +30,23 @@ $credits-spacing: 1.5rem;
   }
 }
 
-@mixin mobile {
-  @media screen and (max-width: 768px) {
+@mixin tablet {
+  @media screen and (min-width: 550px) and (max-width: 768px) {
     @content;
   }
 }
 
+@mixin mobile {
+  @media screen and (max-width: 549px) {
+    @content;
+  }
+}
+
+* {
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+}
 html, body {
   margin: 0;
   padding: 0;
@@ -25,39 +58,55 @@ html {
   font-size: 62.5%
 }
 body {
-  color: black;
+  color: white;
   font-size: 6rem;
+  white-space: nowrap;
 }
 @mixin serif() {
-  font-family: serif;
+  font-family: "SangBleu Kingdom Light", serif;
+  text-transform: uppercase;
 }
 @mixin sans-serif() {
-  font-family: sans-serif;
+  font-family: "SuisseIntl Light S", sans-serif;
+  text-transform: uppercase;
 }
-.serif {
-  @include serif();
-  @include mobile {
-    font-size: 4.9rem;
-    line-height: 5.6rem;
-  }
-  @include desktop() {
-    font-size: 6.2rem;
-    line-height: 6.8rem;
-  }
-}
-.sans-serif {
-  @include sans-serif();
-  @include mobile {
-    font-size: 5.2rem;
-    line-height: 5.6rem;
-  }
+.header {
+  &--serif {
+    @include serif();
+    @include mobile() {
+      font-size: 2.45rem;
+      line-height: 2.8rem;
+    }
 
-  @include desktop {
-    font-size: 5.9rem;
-    line-height: 7.3rem;
+    @include tablet() {
+      font-size: 4.9rem;
+      line-height: 5.6rem;
+    }
+
+    @include desktop() {
+      font-size: 5.9rem;
+      line-height: 6.8rem;
+      letter-spacing: .1rem;
+    }
+  }
+  &--sans-serif {
+    @include sans-serif();
+    @include mobile() {
+      font-size: 2.6rem;
+      line-height: 2.8rem;
+    }
+    @include tablet() {
+      font-size: 5.2rem;
+      line-height: 5.6rem;
+    }
+    @include desktop() {
+      font-size: 6.2rem;
+      line-height: 6.8rem;
+      letter-spacing: .1rem;
+    }
   }
 }
-.sans-serif-small-uppercase {
+.sans-serif-small {
   @include sans-serif();
   font-size: 1.2rem;
   line-height: 1;
@@ -93,9 +142,30 @@ a, a:visited, a:active, a:focus {
     &.full-width {
       @include desktop() {
         clip-path: inset(0 $desktop-padding * 2 0 0);
+        @media (hover: hover) {
+         clip-path: inset(0 $desktop-padding * 3 0 0);
+          &:hover {
+            clip-path: inset(0 $desktop-padding * 2 0 0);
+          }
+        }
+      }
+       @include tablet() {
+        clip-path: inset(0 $tablet-padding * 2 0 0);
+        @media (hover: hover) {
+          clip-path: inset(0 $tablet-padding * 3 0 0);
+          &:hover {
+            clip-path: inset(0 $tablet-padding * 2 0 0);
+          }
+        }
       }
       @include mobile() {
         clip-path: inset(0 $mobile-padding * 2 0 0);
+        @media (hover: hover) {
+          clip-path: inset(0 $mobile-padding * 3 0 0);
+          &:hover {
+            clip-path: inset(0 $mobile-padding * 2 0 0);
+          }
+        }
       }
     }
   }
@@ -104,9 +174,30 @@ a, a:visited, a:active, a:focus {
     &.full-width {
       @include desktop() {
         clip-path: inset(0 0 0 $desktop-padding * 2);
+        @media (hover: hover) {
+          clip-path: inset(0 0 0 $desktop-padding * 3);
+          &:hover {
+            clip-path: inset(0 0 0 $desktop-padding * 2);
+          }
+        }
+      }
+      @include tablet() {
+        clip-path: inset(0 0 0 $tablet-padding * 2);
+        @media (hover: hover) {
+          clip-path: inset(0 0 0 $tablet-padding * 3);
+          &:hover {
+            clip-path: inset(0 0 0 $tablet-padding * 2);
+          }
+        }
       }
       @include mobile() {
         clip-path: inset(0 0 0 $mobile-padding * 2);
+        @media (hover: hover) {
+          clip-path: inset(0 0 0 $mobile-padding * 3);
+          &:hover {
+            clip-path: inset(0 0 0 $mobile-padding * 2);
+          }
+        }
       }
     }
   }
@@ -133,14 +224,16 @@ a, a:visited, a:active, a:focus {
     &__item {
       width: 100%;
       height: 100%;
-      background-position: center center;
-      background-repeat: repeat;
-      background-size: contain;
-      position: absolute;
-      top: 0;
-      left: 0;
       display: none;
-      &.active {
+      &--image {
+        background-position: center center;
+        background-repeat: repeat;
+        background-size: contain;
+      }
+      &--video {
+        object-fit: cover;
+      }
+      &--active {
         display: block;
       }
     }
