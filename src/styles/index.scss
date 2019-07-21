@@ -121,7 +121,7 @@ a, a:visited, a:active, a:focus {
     transform: translate3d(-50%, 0, 0);
     padding-top: $desktop-padding;
   }
-  &__video {
+  &__media {
     width: 100%;
     height: 100%;
     .split-half--left & {
@@ -129,6 +129,20 @@ a, a:visited, a:active, a:focus {
     }
     .split-half--right & {
       background: #3355ff;
+    }
+    &__item {
+      width: 100%;
+      height: 100%;
+      background-position: center center;
+      background-repeat: repeat;
+      background-size: contain;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+      &.active {
+        display: block;
+      }
     }
   }
 

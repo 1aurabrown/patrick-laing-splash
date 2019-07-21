@@ -1,4 +1,6 @@
 include ./mixins/footer.pug
+include ./mixins/image.pug
+include ./mixins/video.pug
 include ./includes/coded-by.pug
 
 doctype html
@@ -9,21 +11,27 @@ html(lang="en")
     description #{general.description}
   body
     .abc
-      - console.log(videos)
     .split
       .sans-serif.split-half.split-half--left('data-title'!=left.title)
         .split-half__text
           h1.split-half__page-title= general.title
           h2.split-half__section-title.js-section-title
-          .all= left.videos
-        div.split-half__video(src!='')= left.videos
+        .split-half__media
+          each imageFileName, index in left.images
+            +image(left.imagePath, imageFileName)
+          each videoFileName in left.videos
+            +video(left.videoPath, videoFileName)
         +footer(contact)
 
       .serif.split-half.split-half--right('data-title'!=right.title)
         .split-half__text
           div.split-half__page-title= general.title
           h2.split-half__section-title.js-section-title
-        div.split-half__video(src!='')= right.videos
+        .split-half__media
+          each imageFileName, index in right.images
+            +image(right.imagePath, imageFileName)
+          // each videoFileName in left.videos
+          //   +video(right.videoPath, videoFileName)
         +footer(contact)
 
 

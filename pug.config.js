@@ -1,4 +1,3 @@
-const fs = require('fs');
 module.exports = {
   locals: {
     general: {
@@ -8,13 +7,17 @@ module.exports = {
     },
     left: {
       title: "Products",
-      videos: [],
-      images: []
+      videoPath: 'assets/videos/left/',
+      imagePath: 'assets/images/left/',
+      videos: ['1.mp4', '2.mp4', '3.mov'],
+      images: ['1.jpeg', '2.png']
     },
     right: {
       title: "Rings",
-      videos: [],
-      images: []
+      videoPath: 'assets/videos/right/',
+      imagePath: 'assets/images/right/',
+      videos: ['1.mp4', '2.mp4', '3.mov'],
+      images: ['1.jpeg', '2.png']
     },
     contact: {
       linkText: "Contact",
