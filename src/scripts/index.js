@@ -7,7 +7,8 @@ const classes = {
   activeHalf: 'full-width',
   activeMediaItem: 'split-half__media__item--active',
   front: 'front',
-  transitioning: 'transitioning'
+  transitioning: 'transitioning',
+  shrink: 'shrink'
 }
 const selectors = {
   container: '.split',
@@ -27,10 +28,32 @@ function toggleSubtitle (e) {
   $half.html(e.currentTarget.getAttribute('data-title'))
 }
 
+function mouseEntered(e) {
+  const $activeHalf = $(selectors.half, $container).filter(selectors.activeHalf);
+  const $hoveredHalf = $(e.currentTarget);
+  if (($activeHalf.length > 0)  && !$hoveredHalf.is(selectors.activeHalf)) {
+    $activeHalf.addClass(classes.shrink)
+  } else {
+    toggleSubtitle(e);
+  }
+}
+
+
+function mouseLeft(e) {
+  console.log('mouse left')
+  const $activeHalf = $(selectors.half, $container).filter(selectors.activeHalf);
+  const $hoveredHalf = $(e.currentTarget);
+  if ($activeHalf.length > 0) {
+    $activeHalf.removeClass(classes.shrink)
+  }
+
+}
+
 function didClick(e) {
   const $activeHalf = $(selectors.half, $container).filter(selectors.activeHalf);
   const $clickedHalf = $(e.currentTarget);
   if (($activeHalf.length > 0)  && !$clickedHalf.is(selectors.activeHalf)) {
+    $activeHalf.removeClass(classes.shrink);
     $container.addClass(classes.transitioning)
     $activeHalf.removeClass(classes.activeHalf)
     $activeHalf.one('transitionend', () => {
@@ -77,7 +100,8 @@ function cycleMedia() {
 $(document).ready(() => {
   codedBy();
   $container = $(selectors.container);
-  $container.on('mouseenter', selectors.half, toggleSubtitle)
+  $container.on('mouseenter', selectors.half, mouseEntered)
+  $container.on('mouseleave', selectors.half, mouseLeft)
   $container.on('click', selectors.half, didClick)
   $(selectors.media, $container).each(cycleMedia)
 })
