@@ -21,16 +21,17 @@ module.exports = {
     },
     contact: {
       linkText: "Contact",
-      email: "laura@laurabrown.xyz"
+      email: "“patrick@patricklaing.com"
     },
-    credits: [{
-      role: "Design by",
-      linkText: "Ongoing Projects",
-      linkDestination: "https://ongoingprojects.co"
-    },{
-      role: "Development by",
-      linkText: "Laura Brown",
-      linkDestination: "https://laurabrown.xyz"
-    }]
+    credits: [
+      {
+        linkText: "Design by Ongoing Projects",
+        linkDestination: "https://ongoingprojects.co"
+      },
+      {
+        linkText: "Development by Laura Brown",
+        linkDestination: "https://laurabrown.xyz"
+      }
+    ]
   }
 };
