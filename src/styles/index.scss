@@ -1,6 +1,6 @@
 $desktop-padding: 5rem;
 $tablet-padding: 2.5rem;
-$mobile-padding: 1.25rem;
+$mobile-padding: 1.5rem;
 
 @font-face {
   font-family: "SangBleu Kingdom Light";
@@ -136,6 +136,9 @@ a, a:visited, a:active, a:focus {
   bottom: 0;
   transition: clip-path .25s ease-in-out;
   cursor: pointer;
+  &.full-width {
+    cursor: default;
+  }
   &--left {
     clip-path: inset(0 50% 0 0);
 
@@ -245,5 +248,30 @@ a, a:visited, a:active, a:focus {
     left: 50%;
     transform: translate3d(-50%, 0, 0);
     padding-bottom: $desktop-padding
+  }
+}
+.credits {
+  @include serif();
+  transform: rotateZ(-90deg) translate3d(100%, 0, 0);
+  transform-origin: center right;
+  font-size: 1.2rem;
+  line-height: 1;
+  @include desktop() {
+    bottom: $desktop-padding;
+    right: $desktop-padding;
+  }
+  @include tablet() {
+    bottom: $tablet-padding;
+    right: $tablet-padding;
+  }
+  @include mobile() {
+    font-size: 1.1rem;
+    bottom: $mobile-padding;
+    right: $mobile-padding;
+  }
+  position: fixed;
+  &__credit {
+    display: inline-block;
+    margin-right: 1.5rem;
   }
 }

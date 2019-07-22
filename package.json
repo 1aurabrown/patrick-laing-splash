@@ -20,6 +20,7 @@
     "pug": "^2.0.4"
   },
   "dependencies": {
+    "autoprefixer": "^9.6.1",
     "jquery": "^3.4.1"
   },
   "staticFiles": {

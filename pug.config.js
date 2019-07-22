@@ -24,7 +24,11 @@ module.exports = {
       email: "laura@laurabrown.xyz"
     },
     credits: [{
-      role: "Developer",
+      role: "Design by",
+      linkText: "Ongoing Projects",
+      linkDestination: "https://ongoingprojects.co"
+    },{
+      role: "Development by",
       linkText: "Laura Brown",
       linkDestination: "https://laurabrown.xyz"
     }]

@@ -1,0 +1,5 @@
+mixin credit(credit)
+  span.credits__credit
+    != credit.role
+    a(href!=credit.linkDestination target='_blank')= credit.linkText
+

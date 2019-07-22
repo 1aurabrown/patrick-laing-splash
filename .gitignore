@@ -1,5 +1,6 @@
 node_modules
 dist
+dev
 .cache
 .DS_Store
 tmp

@@ -30,7 +30,7 @@ function toggleSubtitle (e) {
 function didClick(e) {
   const $activeHalf = $(selectors.half, $container).filter(selectors.activeHalf);
   const $clickedHalf = $(e.currentTarget);
-  if (($activeHalf.length > 0)  && ($clickedHalf.is(`:not(${selectors.activeHalf}`))) {
+  if (($activeHalf.length > 0)  && !$clickedHalf.is(selectors.activeHalf)) {
     $container.addClass(classes.transitioning)
     $activeHalf.removeClass(classes.activeHalf)
     $activeHalf.one('transitionend', () => {
