@@ -122,49 +122,51 @@ a, a:visited, a:active, a:focus {
     clip-path: inset(0 50% 0 0);
     .split-half__media {
       filter: hue-rotate(180deg);
+      @include desktop() {
+        padding-right: $desktop-padding * 2;
+      }
+      @include mobile() {
+        padding-right: $mobile-padding * 2;
+      }
     }
     &.full-width {
       @include desktop() {
         clip-path: inset(0 $desktop-padding * 2 0 0);
-        @media (hover: hover) {
-         clip-path: inset(0 $desktop-padding * 3 0 0);
-          &:hover {
-            clip-path: inset(0 $desktop-padding * 2 0 0);
-          }
+        &.shrink {
+          clip-path: inset(0 $desktop-padding * 3 0 0);
         }
       }
 
       @include mobile() {
         clip-path: inset(0 $mobile-padding * 2 0 0);
-        @media (hover: hover) {
+        &.shrink {
           clip-path: inset(0 $mobile-padding * 3 0 0);
-          &:hover {
-            clip-path: inset(0 $mobile-padding * 2 0 0);
-          }
         }
       }
     }
   }
   &--right {
-    clip-path: inset(0 0 0 50%);
+    clip-path: inset(0 0 0 calc(50% - 1px));
+    .split-half__media {
+      @include desktop() {
+        padding-left: $desktop-padding * 2;
+      }
+      @include mobile() {
+        padding-left: $mobile-padding * 2;
+      }
+    }
     &.full-width {
       @include desktop() {
         clip-path: inset(0 0 0 $desktop-padding * 2);
-        @media (hover: hover) {
+        &.shrink {
           clip-path: inset(0 0 0 $desktop-padding * 3);
-          &:hover {
-            clip-path: inset(0 0 0 $desktop-padding * 2);
-          }
         }
       }
 
       @include mobile() {
         clip-path: inset(0 0 0 $mobile-padding * 2);
-        @media (hover: hover) {
+        &.shrink {
           clip-path: inset(0 0 0 $mobile-padding * 3);
-          &:hover {
-            clip-path: inset(0 0 0 $mobile-padding * 2);
-          }
         }
       }
     }
@@ -190,8 +192,8 @@ a, a:visited, a:active, a:focus {
     }
   }
   &__media {
-    width: 100%;
     height: 100%;
+    width: 100%;
     clip-path: inset(0 0 0 0);
     &__item {
       background: black;
