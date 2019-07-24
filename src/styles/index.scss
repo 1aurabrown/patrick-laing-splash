@@ -1,5 +1,8 @@
-$desktop-padding: 5rem;
+$desktop-padding: 3.5rem;
+$desktop-peek: 8rem;
 $mobile-padding: 2rem;
+$mobile-peek: $mobile-padding * 2;
+$transition-duration: .3s;
 
 @font-face {
   font-family: "SangBleu Kingdom Light";
@@ -39,6 +42,7 @@ $mobile-padding: 2rem;
   user-select: none;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
 }
 html, body {
   margin: 0;
@@ -72,9 +76,9 @@ body {
     }
 
     @include desktop() {
-      font-size: 5.9rem;
-      line-height: 6.8rem;
-      letter-spacing: .1rem;
+      font-size: 4.8rem;
+      line-height: 5.7rem;
+      letter-spacing: .3rem;
     }
   }
   &--sans-serif {
@@ -84,9 +88,9 @@ body {
       line-height: 3.4rem;
     }
     @include desktop() {
-      font-size: 6.2rem;
-      line-height: 6.8rem;
-      letter-spacing: .1rem;
+      font-size: 5.2rem;
+      line-height: 5.7rem;
+      letter-spacing: .3rem;
     }
   }
 }
@@ -113,7 +117,7 @@ a, a:visited, a:active, a:focus {
   left: 0;
   right: 0;
   bottom: 0;
-  transition: clip-path .25s ease-in-out;
+  transition: clip-path $transition-duration ease-out;
   cursor: pointer;
   &.full-width {
     cursor: default;
@@ -121,26 +125,26 @@ a, a:visited, a:active, a:focus {
   &--left {
     clip-path: inset(0 50% 0 0);
     .split-half__media {
-      filter: hue-rotate(180deg);
+      filter: brightness(93%);
       @include desktop() {
-        padding-right: $desktop-padding * 2;
+        padding-right: $desktop-peek;
       }
       @include mobile() {
-        padding-right: $mobile-padding * 2;
+        padding-right: $mobile-peek;
       }
     }
     &.full-width {
       @include desktop() {
-        clip-path: inset(0 $desktop-padding * 2 0 0);
+        clip-path: inset(0 $desktop-peek 0 0);
         &.shrink {
-          clip-path: inset(0 $desktop-padding * 3 0 0);
+          clip-path: inset(0 $desktop-peek * 1.25 0 0);
         }
       }
 
       @include mobile() {
-        clip-path: inset(0 $mobile-padding * 2 0 0);
+        clip-path: inset(0 $mobile-peek 0 0);
         &.shrink {
-          clip-path: inset(0 $mobile-padding * 3 0 0);
+          clip-path: inset(0 $mobile-peek * 1.25 0 0);
         }
       }
     }
@@ -149,24 +153,24 @@ a, a:visited, a:active, a:focus {
     clip-path: inset(0 0 0 calc(50% - 1px));
     .split-half__media {
       @include desktop() {
-        padding-left: $desktop-padding * 2;
+        padding-left: $desktop-peek;
       }
       @include mobile() {
-        padding-left: $mobile-padding * 2;
+        padding-left: $mobile-peek;
       }
     }
     &.full-width {
       @include desktop() {
-        clip-path: inset(0 0 0 $desktop-padding * 2);
+        clip-path: inset(0 0 0 $desktop-peek);
         &.shrink {
-          clip-path: inset(0 0 0 $desktop-padding * 3);
+          clip-path: inset(0 0 0 $desktop-peek * 1.25);
         }
       }
 
       @include mobile() {
-        clip-path: inset(0 0 0 $mobile-padding * 2);
+        clip-path: inset(0 0 0 $mobile-peek);
         &.shrink {
-          clip-path: inset(0 0 0 $mobile-padding * 3);
+          clip-path: inset(0 0 0 $mobile-peek * 1.5);
         }
       }
     }
@@ -232,18 +236,18 @@ a, a:visited, a:active, a:focus {
   left: 100%;
   display: flex;
   align-items: center;
+  font-size: 1.2rem;
+  letter-spacing: .1rem;
   @include desktop() {
-    height: $desktop-padding * 2;
-    bottom: $desktop-padding;
-    right: $desktop-padding;
-    font-size: 1.2rem;
+    height: $desktop-peek;
+    bottom: $desktop-peek/2;
+    right: $desktop-peek/2;
   }
 
   @include mobile() {
-    height: $mobile-padding * 2;
+    height: $mobile-peek;
     bottom: 1.5rem;
     right: 0;
-    font-size: 1.0rem;
   }
   position: fixed;
   &__credit {
