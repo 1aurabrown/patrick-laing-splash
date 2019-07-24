@@ -44,12 +44,15 @@ $transition-duration: .3s;
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
 }
-html, body {
+html, body, {
   margin: 0;
   padding: 0;
   border: 0;
   height: 100%;
+  width: 100%;
   background: black;
+  position: fixed;
+  overflow: hidden;
 }
 html {
   font-size: 62.5%
@@ -73,6 +76,7 @@ body {
     @include mobile() {
       font-size: 2.8rem;
       line-height: 3.4rem;
+      letter-spacing: .18rem;
     }
 
     @include desktop() {
@@ -86,6 +90,7 @@ body {
     @include mobile() {
       font-size: 3.0rem;
       line-height: 3.4rem;
+      letter-spacing: .18rem;
     }
     @include desktop() {
       font-size: 5.2rem;
@@ -111,19 +116,24 @@ a, a:visited, a:active, a:focus {
   height: 100%;
 }
 .split-half {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  transition: clip-path $transition-duration ease-out;
+  transition: all $transition-duration ease-out;
   cursor: pointer;
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  overflow: hidden;
+  &__inner {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100%;
+  }
   &.full-width {
     cursor: default;
   }
   &--left {
-    clip-path: inset(0 50% 0 0);
+    left: 0;
+    right: 50%;
     .split-half__media {
       filter: brightness(93%);
       @include desktop() {
@@ -133,24 +143,30 @@ a, a:visited, a:active, a:focus {
         padding-right: $mobile-peek;
       }
     }
+    .split-half__inner {
+      left: 0;
+    }
     &.full-width {
       @include desktop() {
-        clip-path: inset(0 $desktop-peek 0 0);
+        right: $desktop-peek;
         &.shrink {
-          clip-path: inset(0 $desktop-peek * 1.25 0 0);
+          right: $desktop-peek * 1.25;
         }
       }
-
       @include mobile() {
-        clip-path: inset(0 $mobile-peek 0 0);
+        right: $mobile-peek;
         &.shrink {
-          clip-path: inset(0 $mobile-peek * 1.25 0 0);
+          right: $mobile-peek * 1.5;
         }
       }
     }
   }
   &--right {
-    clip-path: inset(0 0 0 calc(50% - 1px));
+    right: 0;
+    left: 50%;
+    .split-half__inner {
+      right: 0;
+    }
     .split-half__media {
       @include desktop() {
         padding-left: $desktop-peek;
@@ -161,16 +177,16 @@ a, a:visited, a:active, a:focus {
     }
     &.full-width {
       @include desktop() {
-        clip-path: inset(0 0 0 $desktop-peek);
+        left: $desktop-peek;
         &.shrink {
-          clip-path: inset(0 0 0 $desktop-peek * 1.25);
+          left: $desktop-peek * 1.25;
         }
       }
 
       @include mobile() {
-        clip-path: inset(0 0 0 $mobile-peek);
+        left: $mobile-peek;
         &.shrink {
-          clip-path: inset(0 0 0 $mobile-peek * 1.5);
+          left: $mobile-peek * 1.5;
         }
       }
     }
@@ -179,6 +195,7 @@ a, a:visited, a:active, a:focus {
     z-index: 1;
   }
   &__text, &__footer {
+    width: 100vw;
     z-index: 1;
     position: absolute;
     left: 0;
@@ -197,8 +214,7 @@ a, a:visited, a:active, a:focus {
   }
   &__media {
     height: 100%;
-    width: 100%;
-    clip-path: inset(0 0 0 0);
+    width: 100vw;
     &__item {
       background: black;
       width: 100%;

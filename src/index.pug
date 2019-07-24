@@ -14,26 +14,28 @@ html(lang="en")
   body
     .split
       .header.header--sans-serif.split-half.split-half--left('data-title'!=left.title)
-        .split-half__text
-          h1.split-half__page-title= general.title
-          h2.split-half__section-title.js-section-title
-        .split-half__media
-          each imageFileName, index in left.images
-            +image(left.imagePath, imageFileName)
-          each videoFileName in left.videos
-            +video(left.videoPath, videoFileName)
-        +footer(contact)
+        .split-half__inner
+          .split-half__text
+            h1.split-half__page-title= general.title
+            h2.split-half__section-title.js-section-title
+          .split-half__media
+            each imageFileName, index in left.images
+              +image(left.imagePath, imageFileName)
+            each videoFileName in left.videos
+              +video(left.videoPath, videoFileName)
+          +footer(contact)
 
       .header.header--serif.split-half.split-half--right('data-title'!=right.title)
-        .split-half__text
-          div.split-half__page-title= general.title
-          h2.split-half__section-title.js-section-title
-        .split-half__media
-          each imageFileName, index in right.images
-            +image(right.imagePath, imageFileName)
-          each videoFileName in right.videos
-            +video(left.videoPath, videoFileName)
-        +footer(contact)
+        .split-half__inner
+          .split-half__text
+            div.split-half__page-title= general.title
+            h2.split-half__section-title.js-section-title
+          .split-half__media
+            each imageFileName, index in right.images
+              +image(right.imagePath, imageFileName)
+            each videoFileName in right.videos
+              +video(left.videoPath, videoFileName)
+          +footer(contact)
     .credits
       each credit in credits
         +credit(credit)

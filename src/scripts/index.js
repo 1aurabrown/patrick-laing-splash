@@ -2,6 +2,7 @@ import '../styles/index.scss';
 import codedBy from './coded-by'
 import $ from 'jquery';
 
+const isTouchDevice = ('ontouchstart' in window || 'onmsgesturechange' in window)
 const imageDuration = 2000;
 const classes = {
   activeHalf: 'full-width',
@@ -23,9 +24,23 @@ const selectors = {
 }
 var $container;
 
-function toggleSubtitle (e) {
-  const $half = $(selectors.sectionTitle, $container);
-  $half.html(e.currentTarget.getAttribute('data-title'))
+function updateSubtitle (e) {
+  const $subtitles = $(selectors.sectionTitle, $container);
+  const newTitle = e.currentTarget.getAttribute('data-title')
+  if ($subtitles.html() != newTitle) {
+    $subtitles.fadeOut(300)
+    $subtitles.promise().done(function() {
+      $subtitles.html(newTitle).fadeIn(300)
+    })
+  }
+}
+
+function clearSubtitles (callback) {
+  const $subtitles = $(selectors.sectionTitle, $container);
+  $subtitles.fadeOut(300)
+  $subtitles.promise().done(function() {
+    $subtitles.html('')
+  })
 }
 
 function mouseEntered(e) {
@@ -34,13 +49,12 @@ function mouseEntered(e) {
   if (($activeHalf.length > 0)  && !$hoveredHalf.is(selectors.activeHalf)) {
     $activeHalf.addClass(classes.shrink)
   } else {
-    toggleSubtitle(e);
+    updateSubtitle(e)
   }
 }
 
 
 function mouseLeft(e) {
-  console.log('mouse left')
   const $activeHalf = $(selectors.half, $container).filter(selectors.activeHalf);
   const $hoveredHalf = $(e.currentTarget);
   if ($activeHalf.length > 0) {
@@ -54,18 +68,21 @@ function didClick(e) {
   const $clickedHalf = $(e.currentTarget);
   if (($activeHalf.length > 0)  && !$clickedHalf.is(selectors.activeHalf)) {
     $activeHalf.removeClass(classes.shrink);
-    $container.addClass(classes.transitioning)
     $activeHalf.removeClass(classes.activeHalf)
     $activeHalf.one('transitionend', () => {
       $activeHalf.removeClass(classes.front)
-      $container.removeClass(classes.transitioning)
+      if (!isTouchDevice) {
+        $container.one('mousemove', selectors.half, updateSubtitle)
+      }
+      clearSubtitles();
     })
   } else {
-    $container.addClass(classes.transitioning)
+    if (isTouchDevice) {
+      updateSubtitle(e)
+    }
     $clickedHalf.addClass('front full-width')
     $clickedHalf.one('transitionend', () => {
       $activeHalf.removeClass(classes.front)
-      $container.removeClass(classes.transitioning)
     })
   }
 }
@@ -100,8 +117,11 @@ function cycleMedia() {
 $(document).ready(() => {
   codedBy();
   $container = $(selectors.container);
-  $container.on('mouseenter', selectors.half, mouseEntered)
-  $container.on('mouseleave', selectors.half, mouseLeft)
+  if (!isTouchDevice) {
+    $container.on('mouseenter', selectors.half, mouseEntered)
+    $container.one('mousemove', selectors.half, updateSubtitle)
+    $container.on('mouseleave', selectors.half, mouseLeft)
+  }
   $container.on('click', selectors.half, didClick)
   $(selectors.media, $container).each(cycleMedia)
 })
