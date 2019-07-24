@@ -151,7 +151,7 @@ a, a:visited, a:active, a:focus {
     left: 0;
     right: 50%;
     .split-half__media {
-      filter: brightness(93%);
+      // filter: brightness(93%);
       padding-right: var(--peek);
     }
     .split-half__inner {
@@ -184,6 +184,7 @@ a, a:visited, a:active, a:focus {
     z-index: 1;
   }
   &__text, &__footer {
+    mix-blend-mode: difference;
     width: 100vw;
     z-index: 1;
     position: absolute;
@@ -226,6 +227,7 @@ a, a:visited, a:active, a:focus {
   }
 }
 .credits {
+  mix-blend-mode: difference;
   @include serif();
   z-index: 2;
   transform: rotateZ(-90deg);
