@@ -99,11 +99,17 @@ function displayVideo(el, context) {
 }
 
 function cycleMedia() {
-  const $mediaItems = $(this).children().filter((index, el) => {
-    if (el.matches(selectors.activeMediaItem)) { return false; }
+  var $mediaItems = $(this).children().filter((index, el) => {
     if (el.matches(selectors.video) && el.readyState < 4 ) { return false; }
     return true;
   })
+
+  if ($mediaItems.length > 1) {
+    $mediaItems = $mediaItems.filter((index, el) => {
+      if (el.matches(selectors.activeMediaItem)) { return false; }
+      return true;
+    })
+  }
   const randomIndex = Math.floor(Math.random() * $mediaItems.length)
   const random = $mediaItems[randomIndex];
   $(this.children).removeClass(classes.activeMediaItem)

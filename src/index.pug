@@ -33,7 +33,7 @@ html(lang="en")
           .split-half__media
             each imageFileName, index in right.images
               +image(right.imagePath, imageFileName)
-            each videoURL in left.videos
+            each videoURL in right.videos
               +video(videoURL)
           +footer(contact)
     .credits
