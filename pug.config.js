@@ -20,7 +20,7 @@ module.exports = {
       videos: [
         'https://player.vimeo.com/external/350055538.hd.mp4?s=ca47fde229ed29e738ea5855338805bb177087ba&profile_id=174'
       ],
-      images: ['1.jpeg', '2.png']
+      images: ['pl_website_statue_i.jpg']
     },
     contact: {
       linkText: "Contact",

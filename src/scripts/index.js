@@ -3,7 +3,7 @@ import codedBy from './coded-by'
 import $ from 'jquery';
 
 const isTouchDevice = ('ontouchstart' in window || 'onmsgesturechange' in window)
-const imageDuration = 2000;
+
 const classes = {
   activeHalf: 'full-width',
   activeMediaItem: 'split-half__media__item--active',
@@ -23,6 +23,10 @@ const selectors = {
   activeHalf: `.${classes.activeHalf}`,
 }
 var $container;
+
+function imageDuration() {
+  return Math.floor((3 * Math.random() + 2) * 1000)
+}
 
 function updateSubtitle (e) {
   const $subtitles = $(selectors.sectionTitle, $container);
@@ -89,7 +93,7 @@ function didClick(e) {
 
 function displayImage(el, context) {
   $(el).addClass(classes.activeMediaItem);
-  setTimeout(cycleMedia.bind(context), imageDuration)
+  setTimeout(cycleMedia.bind(context), imageDuration())
 }
 
 function displayVideo(el, context) {
@@ -100,7 +104,7 @@ function displayVideo(el, context) {
 
 function cycleMedia() {
   var $mediaItems = $(this).children().filter((index, el) => {
-    if (el.matches(selectors.video) && el.readyState < 4 ) { return false; }
+    if (el.matches(selectors.video) && el.readyState < 3 ) { return false; }
     return true;
   })
 
