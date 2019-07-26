@@ -29,21 +29,30 @@ function imageDuration() {
 }
 
 function updateSubtitle (e) {
-  const $subtitles = $(selectors.sectionTitle, $container);
   const newTitle = e.currentTarget.getAttribute('data-title')
-  if ($subtitles.html() != newTitle) {
-    $subtitles.fadeOut(300)
-    $subtitles.promise().done(function() {
-      $subtitles.html(newTitle).fadeIn(300)
-    })
+  fadeSubtitle(newTitle)
+}
+
+function fadeDuration(text) {
+  if (text.length > 0) {
+    return 300
+  } else {
+    return 0
   }
 }
 
-function clearSubtitles (callback) {
+function fadeSubtitle(newTitle) {
   const $subtitles = $(selectors.sectionTitle, $container);
-  $subtitles.fadeOut(300)
+  const oldTitle = $subtitles.html();
+  if ( oldTitle == newTitle) { return }
+
+  const fadeInDuration = fadeDuration(newTitle)
+  const fadeOutDuration = fadeDuration(oldTitle)
+
+  $subtitles.stop().fadeTo(fadeOutDuration, 0, "linear")
   $subtitles.promise().done(function() {
-    $subtitles.html('')
+    $subtitles.html(newTitle)
+    $subtitles.fadeTo(fadeInDuration, 1, "linear")
   })
 }
 
@@ -78,12 +87,10 @@ function didClick(e) {
       if (!isTouchDevice) {
         $container.one('mousemove', selectors.half, updateSubtitle)
       }
-      clearSubtitles();
+      fadeSubtitle('');
     })
   } else {
-    if (isTouchDevice) {
-      updateSubtitle(e)
-    }
+    updateSubtitle(e)
     $clickedHalf.addClass('front full-width')
     $clickedHalf.one('transitionend', () => {
       $activeHalf.removeClass(classes.front)
@@ -132,6 +139,9 @@ $(document).ready(() => {
     $container.one('mousemove', selectors.half, updateSubtitle)
     $container.on('mouseleave', selectors.half, mouseLeft)
   }
+  $('video', $container).each(function(index, el) {
+    el.load();
+  })
   $container.on('click', selectors.half, didClick)
   $(selectors.media, $container).each(cycleMedia)
 })
