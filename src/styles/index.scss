@@ -1,9 +1,34 @@
 $desktop-padding: 3.5rem;
 $desktop-peek: 8rem;
-$mobile-padding: 2rem;
-$mobile-peek: $mobile-padding * 2;
+$mobile-padding: 1.5rem;
+$mobile-peek: 3.8rem;
 $transition-duration: .3s;
 
+
+@mixin desktop {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+:root {
+  --transition-duration: #{$transition-duration};
+  --peek: #{$desktop-peek};
+  --padding: #{$desktop-padding};
+}
+
+@include mobile() {
+  :root {
+    --peek: #{$mobile-peek};
+    --padding: #{$mobile-padding};
+  }
+}
 @font-face {
   font-family: "SangBleu Kingdom Light";
   src: url('../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.eot');
@@ -24,18 +49,6 @@ $transition-duration: .3s;
        url('../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.ttf') format("truetype");
   font-weight: normal;
   font-style: normal;
-}
-
-@mixin desktop {
-  @media screen and (min-width: 768px) {
-    @content;
-  }
-}
-
-@mixin mobile {
-  @media screen and (max-width: 767px) {
-    @content;
-  }
 }
 
 * {
@@ -73,29 +86,32 @@ body {
 .header {
   &--serif {
     @include serif();
-    @include mobile() {
-      font-size: 2.8rem;
-      line-height: 3.4rem;
-      letter-spacing: .18rem;
-    }
-
-    @include desktop() {
-      font-size: 4.8rem;
-      line-height: 5.7rem;
-      letter-spacing: .3rem;
-    }
   }
   &--sans-serif {
     @include sans-serif();
-    @include mobile() {
+  }
+  @include mobile() {
+    &--sans-serif {
       font-size: 3.0rem;
       line-height: 3.4rem;
-      letter-spacing: .18rem;
+      letter-spacing: .07em;
     }
-    @include desktop() {
+    &--serif {
+      font-size: 2.7rem;
+      line-height: 3.4rem;
+      letter-spacing: .06em;
+    }
+  }
+  @include desktop() {
+    &--sans-serif {
       font-size: 5.2rem;
       line-height: 5.7rem;
-      letter-spacing: .3rem;
+      letter-spacing: .07em;
+    }
+    &--serif {
+      font-size: 4.8rem;
+      line-height: 5.7rem;
+      letter-spacing: .06em;
     }
   }
 }
@@ -116,7 +132,7 @@ a, a:visited, a:active, a:focus {
   height: 100%;
 }
 .split-half {
-  transition: all $transition-duration ease-out;
+  transition: all var(--transition-duration) ease-out;
   cursor: pointer;
   top: 0;
   bottom: 0;
@@ -136,28 +152,15 @@ a, a:visited, a:active, a:focus {
     right: 50%;
     .split-half__media {
       filter: brightness(93%);
-      @include desktop() {
-        padding-right: $desktop-peek;
-      }
-      @include mobile() {
-        padding-right: $mobile-peek;
-      }
+      padding-right: var(--peek);
     }
     .split-half__inner {
       left: 0;
     }
     &.full-width {
-      @include desktop() {
-        right: $desktop-peek;
-        &.shrink {
-          right: $desktop-peek * 1.25;
-        }
-      }
-      @include mobile() {
-        right: $mobile-peek;
-        &.shrink {
-          right: $mobile-peek * 1.5;
-        }
+      right: var(--peek);
+      &.shrink {
+        right: calc(var(--peek) + .2rem);
       }
     }
   }
@@ -168,26 +171,12 @@ a, a:visited, a:active, a:focus {
       right: 0;
     }
     .split-half__media {
-      @include desktop() {
-        padding-left: $desktop-peek;
-      }
-      @include mobile() {
-        padding-left: $mobile-peek;
-      }
+      padding-left: var(--peek);
     }
     &.full-width {
-      @include desktop() {
-        left: $desktop-peek;
-        &.shrink {
-          left: $desktop-peek * 1.25;
-        }
-      }
-
-      @include mobile() {
-        left: $mobile-peek;
-        &.shrink {
-          left: $mobile-peek * 1.5;
-        }
+      left: var(--peek);
+      &.shrink {
+        left: calc(var(--peek) + .2rem);
       }
     }
   }
@@ -205,12 +194,7 @@ a, a:visited, a:active, a:focus {
     flex-direction: column;
   }
   &__text {
-    @include desktop() {
-      top: $desktop-padding;
-    }
-    @include mobile() {
-      top: $mobile-padding;
-    }
+    top: calc(var(--padding) - .4rem);
   }
   &__media {
     height: 100%;
@@ -238,12 +222,7 @@ a, a:visited, a:active, a:focus {
   }
 
   &__footer {
-    @include desktop() {
-      bottom: $desktop-padding
-    }
-    @include mobile() {
-      bottom: $mobile-padding
-    }
+    bottom: calc(var(--padding) - .8rem)
   }
 }
 .credits {
@@ -255,19 +234,10 @@ a, a:visited, a:active, a:focus {
   left: 100%;
   display: flex;
   align-items: center;
-  font-size: 1.2rem;
-  letter-spacing: .1rem;
-  @include desktop() {
-    height: $desktop-peek;
-    bottom: $desktop-peek/2;
-    right: $desktop-peek/2;
-  }
-
-  @include mobile() {
-    height: $mobile-peek;
-    bottom: 1.5rem;
-    right: 0;
-  }
+  font-size: .9rem;
+  letter-spacing: .2rem;
+  height: var(--peek);
+  bottom: var(--padding);
   position: fixed;
   &__credit {
     display: inline-block;

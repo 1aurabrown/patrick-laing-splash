@@ -132,7 +132,7 @@ function cycleMedia() {
 }
 
 $(document).ready(() => {
-  codedBy();
+  // codedBy();
   $container = $(selectors.container);
   if (!isTouchDevice) {
     $container.on('mouseenter', selectors.half, mouseEntered)
