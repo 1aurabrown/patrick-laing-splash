@@ -1,6 +1,34 @@
-$desktop-padding: 5rem;
-$mobile-padding: 2rem;
+$desktop-padding: 3.5rem;
+$desktop-peek: 8rem;
+$mobile-padding: 1.5rem;
+$mobile-peek: 3.8rem;
+$transition-duration: .3s;
 
+
+@mixin desktop {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+:root {
+  --transition-duration: #{$transition-duration};
+  --peek: #{$desktop-peek};
+  --padding: #{$desktop-padding};
+}
+
+@include mobile() {
+  :root {
+    --peek: #{$mobile-peek};
+    --padding: #{$mobile-padding};
+  }
+}
 @font-face {
   font-family: "SangBleu Kingdom Light";
   src: url('../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.eot');
@@ -23,29 +51,21 @@ $mobile-padding: 2rem;
   font-style: normal;
 }
 
-@mixin desktop {
-  @media screen and (min-width: 768px) {
-    @content;
-  }
-}
-
-@mixin mobile {
-  @media screen and (max-width: 767px) {
-    @content;
-  }
-}
-
 * {
   user-select: none;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
 }
-html, body {
+html, body, {
   margin: 0;
   padding: 0;
   border: 0;
   height: 100%;
+  width: 100%;
   background: black;
+  position: fixed;
+  overflow: hidden;
 }
 html {
   font-size: 62.5%
@@ -66,27 +86,32 @@ body {
 .header {
   &--serif {
     @include serif();
-    @include mobile() {
-      font-size: 2.8rem;
-      line-height: 3.4rem;
-    }
-
-    @include desktop() {
-      font-size: 5.9rem;
-      line-height: 6.8rem;
-      letter-spacing: .1rem;
-    }
   }
   &--sans-serif {
     @include sans-serif();
-    @include mobile() {
+  }
+  @include mobile() {
+    &--sans-serif {
       font-size: 3.0rem;
       line-height: 3.4rem;
+      letter-spacing: .07em;
     }
-    @include desktop() {
-      font-size: 6.2rem;
-      line-height: 6.8rem;
-      letter-spacing: .1rem;
+    &--serif {
+      font-size: 2.7rem;
+      line-height: 3.4rem;
+      letter-spacing: .06em;
+    }
+  }
+  @include desktop() {
+    &--sans-serif {
+      font-size: 5.2rem;
+      line-height: 5.7rem;
+      letter-spacing: .07em;
+    }
+    &--serif {
+      font-size: 4.8rem;
+      line-height: 5.7rem;
+      letter-spacing: .06em;
     }
   }
 }
@@ -107,67 +132,51 @@ a, a:visited, a:active, a:focus {
   height: 100%;
 }
 .split-half {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  transition: clip-path .25s ease-in-out;
+  transition: all var(--transition-duration) ease-out;
   cursor: pointer;
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  overflow: hidden;
+  &__inner {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100%;
+  }
   &.full-width {
     cursor: default;
   }
   &--left {
-    clip-path: inset(0 50% 0 0);
+    left: 0;
+    right: 50%;
     .split-half__media {
-      filter: hue-rotate(180deg);
-      @include desktop() {
-        padding-right: $desktop-padding * 2;
-      }
-      @include mobile() {
-        padding-right: $mobile-padding * 2;
-      }
+      filter: brightness(93%);
+      padding-right: var(--peek);
+    }
+    .split-half__inner {
+      left: 0;
     }
     &.full-width {
-      @include desktop() {
-        clip-path: inset(0 $desktop-padding * 2 0 0);
-        &.shrink {
-          clip-path: inset(0 $desktop-padding * 3 0 0);
-        }
-      }
-
-      @include mobile() {
-        clip-path: inset(0 $mobile-padding * 2 0 0);
-        &.shrink {
-          clip-path: inset(0 $mobile-padding * 3 0 0);
-        }
+      right: var(--peek);
+      &.shrink {
+        right: calc(var(--peek) + .2rem);
       }
     }
   }
   &--right {
-    clip-path: inset(0 0 0 calc(50% - 1px));
+    right: 0;
+    left: 50%;
+    .split-half__inner {
+      right: 0;
+    }
     .split-half__media {
-      @include desktop() {
-        padding-left: $desktop-padding * 2;
-      }
-      @include mobile() {
-        padding-left: $mobile-padding * 2;
-      }
+      padding-left: var(--peek);
     }
     &.full-width {
-      @include desktop() {
-        clip-path: inset(0 0 0 $desktop-padding * 2);
-        &.shrink {
-          clip-path: inset(0 0 0 $desktop-padding * 3);
-        }
-      }
-
-      @include mobile() {
-        clip-path: inset(0 0 0 $mobile-padding * 2);
-        &.shrink {
-          clip-path: inset(0 0 0 $mobile-padding * 3);
-        }
+      left: var(--peek);
+      &.shrink {
+        left: calc(var(--peek) + .2rem);
       }
     }
   }
@@ -175,6 +184,7 @@ a, a:visited, a:active, a:focus {
     z-index: 1;
   }
   &__text, &__footer {
+    width: 100vw;
     z-index: 1;
     position: absolute;
     left: 0;
@@ -184,17 +194,11 @@ a, a:visited, a:active, a:focus {
     flex-direction: column;
   }
   &__text {
-    @include desktop() {
-      top: $desktop-padding;
-    }
-    @include mobile() {
-      top: $mobile-padding;
-    }
+    top: calc(var(--padding) - .4rem);
   }
   &__media {
     height: 100%;
-    width: 100%;
-    clip-path: inset(0 0 0 0);
+    width: 100vw;
     &__item {
       background: black;
       width: 100%;
@@ -204,6 +208,9 @@ a, a:visited, a:active, a:focus {
         background-position: center center;
         background-repeat: repeat;
         background-size: contain;
+        &.cover {
+          background-size: cover;
+        }
       }
       &--video {
         object-fit: cover;
@@ -215,12 +222,7 @@ a, a:visited, a:active, a:focus {
   }
 
   &__footer {
-    @include desktop() {
-      bottom: $desktop-padding
-    }
-    @include mobile() {
-      bottom: $mobile-padding
-    }
+    bottom: calc(var(--padding) - .8rem)
   }
 }
 .credits {
@@ -232,19 +234,10 @@ a, a:visited, a:active, a:focus {
   left: 100%;
   display: flex;
   align-items: center;
-  @include desktop() {
-    height: $desktop-padding * 2;
-    bottom: $desktop-padding;
-    right: $desktop-padding;
-    font-size: 1.2rem;
-  }
-
-  @include mobile() {
-    height: $mobile-padding * 2;
-    bottom: 1.5rem;
-    right: 0;
-    font-size: 1.0rem;
-  }
+  font-size: .9rem;
+  letter-spacing: .2rem;
+  height: var(--peek);
+  bottom: var(--padding);
   position: fixed;
   &__credit {
     display: inline-block;

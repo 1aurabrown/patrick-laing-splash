@@ -1,2 +1,2 @@
-mixin image(imagePath, imageFileName)
-  div.split-half__media__item.split-half__media__item--image(data-type="image" style!=`background-image: url(${imagePath + imageFileName})`)
+mixin image(imagePath, image)
+  div.split-half__media__item.split-half__media__item--image(class={cover: image.cover }, data-type="image" style!=`background-image: url(${imagePath + image.fileName})`)
