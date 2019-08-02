@@ -37,7 +37,8 @@ html(lang="en")
               +video(videoURL)
           +footer(contact)
     .credits
-      each credit in credits
-        +credit(credit)
+      .credits__inner
+        each credit in credits
+          +credit(credit)
 
     script(src="scripts/index.js")

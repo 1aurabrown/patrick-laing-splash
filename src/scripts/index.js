@@ -111,7 +111,7 @@ function displayVideo(el, context) {
 
 function cycleMedia() {
   var $mediaItems = $(this).children().filter((index, el) => {
-    if (el.matches(selectors.video) && el.readyState < 3 ) { return false; }
+    if (el.matches(selectors.video)  ) { return false; }
     return true;
   })
 
