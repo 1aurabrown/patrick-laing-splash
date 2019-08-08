@@ -57,7 +57,7 @@ function fadeSubtitle(newTitle) {
 }
 
 function mouseEntered(e) {
-  const $activeHalf = $(selectors.half, $container).filter(selectors.activeHalf);
+  const $activeHalf = $(selectors.half, $container).filter(selectors.activeHalf).first();
   const $hoveredHalf = $(e.currentTarget);
   if (($activeHalf.length > 0)  && !$hoveredHalf.is(selectors.activeHalf)) {
     $activeHalf.addClass(classes.shrink)
@@ -68,27 +68,29 @@ function mouseEntered(e) {
 
 
 function mouseLeft(e) {
-  const $activeHalf = $(selectors.half, $container).filter(selectors.activeHalf);
+  const $activeHalf = $(selectors.half, $container).filter(selectors.activeHalf).first();
   const $hoveredHalf = $(e.currentTarget);
   if ($activeHalf.length > 0) {
     $activeHalf.removeClass(classes.shrink)
   }
-
 }
 
 function didClick(e) {
-  const $activeHalf = $(selectors.half, $container).filter(selectors.activeHalf);
+  const $activeHalf = $(selectors.half, $container).filter(selectors.activeHalf).first();
   const $clickedHalf = $(e.currentTarget);
-  if (($activeHalf.length > 0)  && !$clickedHalf.is(selectors.activeHalf)) {
-    $activeHalf.removeClass(classes.shrink);
-    $activeHalf.removeClass(classes.activeHalf)
-    $activeHalf.one('transitionend', () => {
-      $activeHalf.removeClass(classes.front)
-      if (!isTouchDevice) {
-        $container.one('mousemove', selectors.half, updateSubtitle)
-      }
-      fadeSubtitle('');
-    })
+  if ($activeHalf.length > 0) {
+
+    if(!$clickedHalf.is(selectors.activeHalf)) {
+      $activeHalf.removeClass(classes.shrink);
+      $activeHalf.removeClass(classes.activeHalf)
+      $activeHalf.one('transitionend', () => {
+        $activeHalf.removeClass(classes.front)
+        if (!isTouchDevice) {
+          $container.one('mousemove', selectors.half, updateSubtitle)
+        }
+        fadeSubtitle('');
+      })
+    }
   } else {
     updateSubtitle(e)
     $clickedHalf.addClass('front full-width')
