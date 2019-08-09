@@ -2,8 +2,8 @@ general:
   title: "Patrick Laing"
   metaDescription: "The website of Patrick Laing"
   metaImage: ""
+imagePath: "./assets/images/"
 left:
-  imagePath: "./assets/images/left/"
   title: "Products"
   videos:
     - 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/561/14/352805980/1432584539.mp4?token=1565369453-0x97efaf57e4613eb20ba78ea847b0081c3598531e'
@@ -14,15 +14,15 @@ left:
     - 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/560/14/352803209/1432570161.mp4?token=1565369446-0x0bfcab8bf8167adc11ae43d0866f69b02e910e75'
     - 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/560/14/352804677/1432580996.mp4?token=1565369449-0xf2f3ee27e7ccee4267a5de088204d2655479d555'
   images:
-    - fileName: "2of3_Socks_bed&couch.png"
-    - fileName: "EDITED_Patrick_Laing_Sketchbook_Two.png"
+    - fileName: "2of3_Socks_bed&couch.jpg"
+    - fileName: "EDITED_Patrick_Laing_Sketchbook_Two.jpg"
     - fileName: "EDITED_Patrick_Laing_Sketchbook.jpg"
       cover: true
-    - fileName: "EDITED>Patrick_Laing_exhibition_stands_adidas_.png"
+    - fileName: "EDITED>Patrick_Laing_exhibition_stands_adidas_.jpg"
       cover: true
-    - fileName: "EDITED>Patrick_Laing_store_shop_design_adidas_one.png"
+    - fileName: "EDITED>Patrick_Laing_store_shop_design_adidas_one.jpg"
       cover: true
-    - fileName: "EDITED>Patrick_Laing_store_shop_design_adidas_two.png"
+    - fileName: "EDITED>Patrick_Laing_store_shop_design_adidas_two.jpg"
     - fileName: "Gold+winged+figure+trophy+design+face.jpg"
       cover: true
     - fileName: "Gold+Winged+Figure+Trophy+design+front.jpg"
@@ -37,14 +37,13 @@ left:
     - fileName: "Pinhole_Making.jpg"
       cover: true
     - fileName: "Plume-Outdoor-Unfurl-Brick.jpg"
-    - fileName: "SNV37449.jpeg"
+    - fileName: "SNV37449.jpg"
     - fileName: "The_Flying_Skirt_TEST.jpg"
     - fileName: "Trophy_scans_1.jpg"
       cover: true
     - fileName: "Trophy_scans_2.jpg"
       cover: true
 right:
-  imagePath: "./assets/images/right/"
   title: "Rings"
   videos:
     - 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/561/14/352805739/1432582155.mp4?token=1565369451-0xb6effcafb71da333e2bd0b298e3d57879814e92b'

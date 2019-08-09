@@ -20,7 +20,7 @@ html(lang="en")
             h2.split-half__section-title.js-section-title
           .split-half__media
             each image, index in left.images
-              +image(left.imagePath, image)
+              +image(imagePath, image)
             each videoURL in left.videos
               +video(videoURL)
           +footer(contact)
@@ -32,7 +32,7 @@ html(lang="en")
             h2.split-half__section-title.js-section-title
           .split-half__media
             each image, index in right.images
-              +image(right.imagePath, image)
+              +image(imagePath, image)
             each videoURL in right.videos
               +video(videoURL)
           +footer(contact)
