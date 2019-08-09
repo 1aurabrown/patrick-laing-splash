@@ -21,7 +21,8 @@
   },
   "dependencies": {
     "autoprefixer": "^9.6.1",
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "js-yaml": "^3.13.1"
   },
   "staticFiles": {
     "staticPath": "assets",

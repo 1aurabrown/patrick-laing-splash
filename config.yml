@@ -1,0 +1,68 @@
+general:
+  title: "Patrick Laing"
+  metaDescription: "The website of Patrick Laing"
+  metaImage: ""
+left:
+  imagePath: "./assets/images/left/"
+  title: "Products"
+  videos:
+    - 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/561/14/352805980/1432584539.mp4?token=1565369453-0x97efaf57e4613eb20ba78ea847b0081c3598531e'
+    - 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/560/14/352803921/1432574677.mp4?token=1565369448-0x333764e1d050bbb536c621fb29b99ce942b50f5a'
+    - 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/560/14/352803100/1432565929.mp4?token=1565369443-0xd90e630131b4d50c8cfc5605864ccdf8ed11b6d0'
+    - 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/560/14/352802822/1432564474.mp4?token=1565369441-0x1c26f17848875c5ecb90c0cae95cd26f1a596437'
+    - 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/560/14/352803182/1432566077.mp4?token=1565369444-0x9afb1fceb4da2c38fa59fadfd97d40ffca635fc2'
+    - 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/560/14/352803209/1432570161.mp4?token=1565369446-0x0bfcab8bf8167adc11ae43d0866f69b02e910e75'
+    - 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/560/14/352804677/1432580996.mp4?token=1565369449-0xf2f3ee27e7ccee4267a5de088204d2655479d555'
+  images:
+    - fileName: "2of3_Socks_bed&couch.png"
+    - fileName: "EDITED_Patrick_Laing_Sketchbook_Two.png"
+    - fileName: "EDITED_Patrick_Laing_Sketchbook.jpg"
+      cover: true
+    - fileName: "EDITED>Patrick_Laing_exhibition_stands_adidas_.png"
+      cover: true
+    - fileName: "EDITED>Patrick_Laing_store_shop_design_adidas_one.png"
+      cover: true
+    - fileName: "EDITED>Patrick_Laing_store_shop_design_adidas_two.png"
+    - fileName: "Gold+winged+figure+trophy+design+face.jpg"
+      cover: true
+    - fileName: "Gold+Winged+Figure+Trophy+design+front.jpg"
+      cover: true
+    - fileName: "Gold+Winged+figure+trophy+design+rear.jpg"
+      cover: true
+    - fileName: "Making_2_Patrick_Laing_Film_Award.jpg"
+    - fileName: "Making_3_Patrick_Laing_Film_Award.jpg"
+      cover: true
+    - fileName: "O2O2-Side-Large-Patrick-Laing.jpg"
+      cover: true
+    - fileName: "Pinhole_Making.jpg"
+      cover: true
+    - fileName: "Plume-Outdoor-Unfurl-Brick.jpg"
+    - fileName: "SNV37449.jpeg"
+    - fileName: "The_Flying_Skirt_TEST.jpg"
+    - fileName: "Trophy_scans_1.jpg"
+      cover: true
+    - fileName: "Trophy_scans_2.jpg"
+      cover: true
+right:
+  imagePath: "./assets/images/right/"
+  title: "Rings"
+  videos:
+    - 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/561/14/352805739/1432582155.mp4?token=1565369451-0xb6effcafb71da333e2bd0b298e3d57879814e92b'
+  images:
+    - fileName: '1.jpg'
+    - fileName: '2.jpg'
+    - fileName: '3.jpg'
+    - fileName: '4.jpg'
+
+contact:
+  linkText: "Contact"
+  email: "patrick@patricklaing.com"
+
+credits:
+  -
+    linkText: "Design by Ongoing Projects"
+    linkDestination: "https://ongoingprojects.co"
+  -
+    linkText: "Built by Laura Brown"
+    linkDestination: "https://laurabrown.xyz"
+
