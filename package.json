@@ -17,8 +17,10 @@
     "cssnano": "^4.1.10",
     "node-sass": "^4.12.0",
     "parcel-bundler": "^1.12.3",
+    "parcel-plugin-imagemin": "^3.0.0",
     "parcel-plugin-ogimage": "^1.1.0",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "pug-lexer": "^4.1.0"
   },
   "dependencies": {
     "autoprefixer": "^9.6.1",

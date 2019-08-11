@@ -118,41 +118,34 @@ class CycleMedia {
     img.src=url;
   }
   cycle() {
-    console.log('cycle')
     this.displayNextMedia()
     this.nextMedia = this.getNextMedia()
   }
 
   displayImage(el) {
+    this.$el.children().removeClass(classes.activeMediaItem)
     $(el).addClass(classes.activeMediaItem);
     setTimeout(this.cycle.bind(this), this.imageDuration())
   }
 
   displayVideo(el) {
+    this.$el.children().removeClass(classes.activeMediaItem)
     $(el).addClass(classes.activeMediaItem);
     $(el).one('ended', this.cycle.bind(this))
     el.play()
   }
   displayNextMedia() {
-    this.$el.children().removeClass(classes.activeMediaItem)
     if (this.nextMedia.matches(selectors.image)) {
       this.displayImage(this.nextMedia)
     } else if (this.nextMedia.matches(selectors.video)) {
-      if (this.nextMedia.readyState >= 3) {
-        console.log(this.nextMedia.src, this.nextMedia.readyState)
-        this.displayVideo(this.nextMedia)
-      } else {
-        console.log('skip video')
-        this.nextMedia = this.getNextMedia()
-        this.cycle()
-      }
+      this.displayVideo(this.nextMedia)
     }
   }
   getNextMedia() {
-    console.log('get next media')
     var $mediaItems = this.$el.children()
     if ($mediaItems.length > 1) {
       $mediaItems = $mediaItems.filter((index, el) => {
+        if (el.matches(selectors.video) && el.readyState < 3) { return false; }
         if (el.matches(selectors.activeMediaItem)) { return false; }
         return true;
       })
@@ -160,7 +153,6 @@ class CycleMedia {
     const randomIndex = Math.floor(Math.random() * $mediaItems.length)
     const media = $mediaItems[randomIndex]
     if (media.matches(selectors.image)) {
-      console.log('image: ', media)
       const imageSelector = `${(isDesktop() ? '.desktop' : '.mobile')} .image`
       var url = $(media).find(imageSelector).css('background-image');
       // ^ Either "none" or url("...urlhere..")
@@ -168,7 +160,6 @@ class CycleMedia {
       url = url ? url[2] : ""; // If matched, retrieve url, otherwise ""
       this.preloadImage(url)
     } else {
-      console.log('video: ', media)
       media.querySelector('source').src = media.querySelector('source').getAttribute('data-src')
     }
     return media;
