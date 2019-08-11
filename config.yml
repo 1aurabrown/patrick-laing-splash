@@ -6,15 +6,15 @@ imagePath: "./assets/images/"
 left:
   title: "Products"
   videos:
-    - 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/561/14/352805980/1432584539.mp4?token=1565369453-0x97efaf57e4613eb20ba78ea847b0081c3598531e'
-    - 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/560/14/352803921/1432574677.mp4?token=1565369448-0x333764e1d050bbb536c621fb29b99ce942b50f5a'
-    - 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/560/14/352803100/1432565929.mp4?token=1565369443-0xd90e630131b4d50c8cfc5605864ccdf8ed11b6d0'
-    - 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/560/14/352802822/1432564474.mp4?token=1565369441-0x1c26f17848875c5ecb90c0cae95cd26f1a596437'
-    - 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/560/14/352803182/1432566077.mp4?token=1565369444-0x9afb1fceb4da2c38fa59fadfd97d40ffca635fc2'
-    - 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/560/14/352803209/1432570161.mp4?token=1565369446-0x0bfcab8bf8167adc11ae43d0866f69b02e910e75'
-    - 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/560/14/352804677/1432580996.mp4?token=1565369449-0xf2f3ee27e7ccee4267a5de088204d2655479d555'
+    - 'https://player.vimeo.com/external/352805980.hd.mp4?s=598441d86cabeb3dd01f3c6687be6be7c95e71a4&profile_id=174'
+    - 'https://player.vimeo.com/external/352804677.hd.mp4?s=718517eea76546bbe16954974175cc7229a671c0&profile_id=174'
+    - 'https://player.vimeo.com/external/352803921.hd.mp4?s=2895814bb45f2fe13384fe46dd56e647b598e727&profile_id=174'
+    - 'https://player.vimeo.com/external/352803209.hd.mp4?s=9eb67b52d10865b7774c31002b6e7a66b062c6b2&profile_id=174'
+    - 'https://player.vimeo.com/external/352803182.hd.mp4?s=dcba7118e81eb3dfe67800506a9f1b323620a700&profile_id=174'
+    - 'https://player.vimeo.com/external/352803100.hd.mp4?s=7e2024d407dde64072d5875be80d493d142df416&profile_id=174'
+    - 'https://player.vimeo.com/external/352802822.hd.mp4?s=0fd2713812ee5cad6889bbc594e06a90f232a5b8&profile_id=174'
+    - 'https://player.vimeo.com/external/350055495.hd.mp4?s=77485a32b2cdfeaa26fa5869cdf2032751ad1c10&profile_id=174'
   images:
-    - fileName: "2of3_Socks_bed&couch.jpg"
     - fileName: "EDITED_Patrick_Laing_Sketchbook_Two.jpg"
     - fileName: "EDITED_Patrick_Laing_Sketchbook.jpg"
       cover: true
@@ -46,7 +46,7 @@ left:
 right:
   title: "Rings"
   videos:
-    - 'https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/561/14/352805739/1432582155.mp4?token=1565369451-0xb6effcafb71da333e2bd0b298e3d57879814e92b'
+    - 'https://player.vimeo.com/external/352805739.hd.mp4?s=0c6b42dee1f0d8264fed4047423e0303bea28094&profile_id=174'
   images:
     - fileName: '1.jpg'
     - fileName: '2.jpg'
