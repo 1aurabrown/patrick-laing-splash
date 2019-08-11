@@ -38,18 +38,25 @@ function updateSubtitle (e) {
 const fadeDuration = 300;
 
 function fadeSubtitle(half) {
-  const $allSubtitles = $(selectors.sectionTitle, $container)
+  const $allSubtitles = $(selectors.sectionTitle, $container);
+
+
   if (half) {
-    const $newSubtitles = $allSubtitles.filter('.' + half);
+    const $newSubtitles = $allSubtitles.filter("." + half);
+    const $oldSubtitles = $allSubtitles.not("." + half);
+    const fadeInDuration =  $newSubtitles.is(':visible') ? 0 : fadeDuration
+    const fadeOutDuration = $oldSubtitles.is(':visible') ? fadeDuration : 0
     if ( $newSubtitles.is(':visible')) { return }
-    const $oldSubtitles = $allSubtitles.not('.' + half);
-    $allSubtitles.stop(true, true)
-    $oldSubtitles.fadeOut(fadeDuration, "linear")
-    $oldSubtitles.promise().done(function() {
-      $newSubtitles.fadeIn(fadeDuration, "linear")
+    $allSubtitles.finish()
+    $oldSubtitles.fadeTo(fadeOutDuration, 0, "linear", () => {
+      $oldSubtitles.hide()
+      $newSubtitles.show()
+      $newSubtitles.fadeTo(fadeInDuration, 1, "linear")
     })
   } else {
-    $allSubtitles.filter(':visible').fadeOut(fadeDuration, "linear")
+    $allSubtitles.filter(':visible').fadeTo(fadeDuration, 0, "linear", () => {
+      $allSubtitles.hide()
+    })
   }
 }
 
