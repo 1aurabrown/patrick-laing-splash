@@ -84,16 +84,7 @@ body {
   text-transform: uppercase;
 }
 .header {
-  .subtitle {
-    display: none;
-    @include desktop() {
-      margin-top: .8rem;
 
-    }
-    @include mobile() {
-      margin-top: .6rem;
-    }
-  }
   &--serif {
     @include serif();
   }
@@ -124,7 +115,19 @@ a, a:visited, a:active, a:focus {
   bottom: 0;
   position: fixed;
   overflow: hidden;
+  &__section-title {
+    @include desktop() {
+      margin-top: .8rem;
 
+    }
+    @include mobile() {
+      margin-top: .6rem;
+    }
+    .subtitle {
+      display: none;
+
+    }
+  }
   svg {
     display: block;
     @include desktop() {

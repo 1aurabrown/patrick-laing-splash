@@ -43,7 +43,8 @@ function fadeSubtitle(half) {
     const $newSubtitles = $allSubtitles.filter('.' + half);
     if ( $newSubtitles.is(':visible')) { return }
     const $oldSubtitles = $allSubtitles.not('.' + half);
-    $oldSubtitles.stop().fadeOut(fadeDuration, "linear")
+    $allSubtitles.stop(true, true)
+    $oldSubtitles.fadeOut(fadeDuration, "linear")
     $oldSubtitles.promise().done(function() {
       $newSubtitles.fadeIn(fadeDuration, "linear")
     })
