@@ -1,3 +1,3 @@
 mixin video(videoURL)
   video.split-half__media__item.split-half__media__item--video(muted preload playsinline  data-type="video")
-    source(src!=videoURL, type="video/mp4")
+    source(data-src!=videoURL, type="video/mp4")

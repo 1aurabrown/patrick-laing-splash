@@ -118,6 +118,7 @@ class CycleMedia {
     img.src=url;
   }
   cycle() {
+    console.log('cycle')
     this.displayNextMedia()
     this.nextMedia = this.getNextMedia()
   }
@@ -137,15 +138,19 @@ class CycleMedia {
     if (this.nextMedia.matches(selectors.image)) {
       this.displayImage(this.nextMedia)
     } else if (this.nextMedia.matches(selectors.video)) {
-      this.displayVideo(this.nextMedia)
+      if (this.nextMedia.readyState >= 3) {
+        console.log(this.nextMedia.src, this.nextMedia.readyState)
+        this.displayVideo(this.nextMedia)
+      } else {
+        console.log('skip video')
+        this.nextMedia = this.getNextMedia()
+        this.cycle()
+      }
     }
   }
   getNextMedia() {
-    var $mediaItems = this.$el.children().filter((index, el) => {
-      if (el.matches(selectors.video) && el.readyState < 3) { return false; }
-      return true;
-    })
-
+    console.log('get next media')
+    var $mediaItems = this.$el.children()
     if ($mediaItems.length > 1) {
       $mediaItems = $mediaItems.filter((index, el) => {
         if (el.matches(selectors.activeMediaItem)) { return false; }
@@ -155,12 +160,16 @@ class CycleMedia {
     const randomIndex = Math.floor(Math.random() * $mediaItems.length)
     const media = $mediaItems[randomIndex]
     if (media.matches(selectors.image)) {
+      console.log('image: ', media)
       const imageSelector = `${(isDesktop() ? '.desktop' : '.mobile')} .image`
       var url = $(media).find(imageSelector).css('background-image');
       // ^ Either "none" or url("...urlhere..")
       url = /^url\((['"]?)(.*)\1\)$/.exec(url);
       url = url ? url[2] : ""; // If matched, retrieve url, otherwise ""
       this.preloadImage(url)
+    } else {
+      console.log('video: ', media)
+      media.querySelector('source').src = media.querySelector('source').getAttribute('data-src')
     }
     return media;
   }
