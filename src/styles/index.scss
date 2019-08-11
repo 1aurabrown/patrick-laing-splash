@@ -257,6 +257,9 @@ a, a:visited, a:active, a:focus {
   height: var(--peek);
   bottom: var(--padding);
   position: fixed;
+  @include mobile() {
+    letter-spacing: 0.125rem;
+  }
   &__credit {
     display: inline-block;
     margin-right: 1.5rem;
