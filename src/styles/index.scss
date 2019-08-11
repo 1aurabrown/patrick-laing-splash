@@ -197,8 +197,10 @@ a, a:visited, a:active, a:focus {
     width: 100vw;
     &__item {
       background: black;
-      width: 100%;
       height: 100%;
+      width: calc(100% + 4px);
+      left: -2px;
+      position: relative;
       display: none;
       &--image {
         .inner.mobile{
@@ -219,9 +221,10 @@ a, a:visited, a:active, a:focus {
           background-position: center center;
           background-repeat: repeat;
           background-size: auto 100%;
-          .cover & {
-            backgcoverround-size: cover;
-          }
+        }
+
+        &.cover .image {
+          background-size: cover;
         }
       }
 
