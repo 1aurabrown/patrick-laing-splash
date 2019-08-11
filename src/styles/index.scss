@@ -1,7 +1,7 @@
-$desktop-padding: 3.5rem;
+$desktop-padding: 1.875rem;
 $desktop-peek: 8rem;
 $mobile-padding: 1.5rem;
-$mobile-peek: 3.8rem;
+$mobile-peek: 4.5rem;
 $transition-duration: .3s;
 
 
@@ -31,22 +31,22 @@ $transition-duration: .3s;
 }
 @font-face {
   font-family: "SangBleu Kingdom Light";
-  src: url('../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.eot');
-  src: url('../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.eot#iefix') format("embedded-opentype"),
-       url('../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.woff2') format("woff2"),
-       url('../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.woff') format("woff"),
-       url('../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.ttf') format("truetype");
+  src: url('../../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.eot');
+  src: url('../../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.eot#iefix') format("embedded-opentype"),
+       url('../../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.woff2') format("woff2"),
+       url('../../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.woff') format("woff"),
+       url('../../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.ttf') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "SuisseIntl Light S";
-  src: url('../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.eot');
-  src: url('../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.eot#iefix') format("embedded-opentype"),
-       url('../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.woff2') format("woff2"),
-       url('../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.woff') format("woff"),
-       url('../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.ttf') format("truetype");
+  src: url('../../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.eot');
+  src: url('../../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.eot#iefix') format("embedded-opentype"),
+       url('../../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.woff2') format("woff2"),
+       url('../../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.woff') format("woff"),
+       url('../../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.ttf') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -84,35 +84,12 @@ body {
   text-transform: uppercase;
 }
 .header {
+
   &--serif {
     @include serif();
   }
   &--sans-serif {
     @include sans-serif();
-  }
-  @include mobile() {
-    &--sans-serif {
-      font-size: 3.0rem;
-      line-height: 3.4rem;
-      letter-spacing: .07em;
-    }
-    &--serif {
-      font-size: 2.7rem;
-      line-height: 3.4rem;
-      letter-spacing: .06em;
-    }
-  }
-  @include desktop() {
-    &--sans-serif {
-      font-size: 5.2rem;
-      line-height: 5.7rem;
-      letter-spacing: .07em;
-    }
-    &--serif {
-      font-size: 4.8rem;
-      line-height: 5.7rem;
-      letter-spacing: .06em;
-    }
   }
 }
 
@@ -138,6 +115,28 @@ a, a:visited, a:active, a:focus {
   bottom: 0;
   position: fixed;
   overflow: hidden;
+  &__section-title {
+    @include desktop() {
+      margin-top: .8rem;
+
+    }
+    @include mobile() {
+      margin-top: .6rem;
+    }
+    .subtitle {
+      display: none;
+
+    }
+  }
+  svg {
+    display: block;
+    @include desktop() {
+      height: 4.8rem;
+    }
+    @include mobile() {
+      height: 2.8rem;
+    }
+  }
   &__inner {
     position: absolute;
     top: 0;
@@ -160,7 +159,7 @@ a, a:visited, a:active, a:focus {
     &.full-width {
       right: var(--peek);
       &.shrink {
-        right: calc(var(--peek) + .2rem);
+        right: calc(var(--peek) * 1.25);
       }
     }
   }
@@ -176,14 +175,14 @@ a, a:visited, a:active, a:focus {
     &.full-width {
       left: var(--peek);
       &.shrink {
-        left: calc(var(--peek) + .2rem);
+        left: calc(var(--peek) * 1.25);
       }
     }
   }
   &.front {
     z-index: 1;
   }
-  &__text, &__footer {
+  &__text, &__contact {
     width: 100vw;
     z-index: 1;
     position: absolute;
@@ -201,17 +200,38 @@ a, a:visited, a:active, a:focus {
     width: 100vw;
     &__item {
       background: black;
-      width: 100%;
       height: 100%;
+      width: calc(100% + 4px);
+      left: -2px;
+      position: relative;
       display: none;
       &--image {
-        background-position: center center;
-        background-repeat: repeat;
-        background-size: contain;
-        &.cover {
+        .inner.mobile{
+          @include desktop() {
+            display: none;
+          }
+        }
+        .inner.desktop {
+          @include mobile() {
+            display: none;
+          }
+        }
+        .inner, .image {
+          width: 100%;
+          height: 100%;
+        }
+        .image {
+          background-position: center center;
+          background-repeat: repeat;
+          background-size: auto 100%;
+        }
+
+        &.cover .image {
           background-size: cover;
         }
       }
+
+
       &--video {
         object-fit: cover;
       }
@@ -221,7 +241,7 @@ a, a:visited, a:active, a:focus {
     }
   }
 
-  &__footer {
+  &__contact {
     bottom: calc(var(--padding) - .8rem)
   }
 }
@@ -230,17 +250,23 @@ a, a:visited, a:active, a:focus {
   z-index: 2;
   transform: rotateZ(-90deg);
   transform-origin: bottom left;
-  line-height: .9;
+  line-height: 1.3;
   left: 100%;
   display: flex;
   align-items: center;
   font-size: .9rem;
-  letter-spacing: .2rem;
+  letter-spacing: .15625rem;
   height: var(--peek);
   bottom: var(--padding);
   position: fixed;
+  @include mobile() {
+    letter-spacing: 0.125rem;
+  }
   &__credit {
     display: inline-block;
     margin-right: 1.5rem;
+    @include mobile() {
+      display: block;
+    }
   }
 }

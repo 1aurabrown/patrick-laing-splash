@@ -1,2 +1,9 @@
 mixin image(imagePath, image)
-  div.split-half__media__item.split-half__media__item--image(class={cover: image.cover }, data-type="image" style!=`background-image: url(${imagePath + image.fileName})`)
+  .split-half__media__item.split-half__media__item--image(class={cover: image.cover }, data-type="image")
+    .inner.desktop
+      .image(
+        style!=`background-image: url(${imagePath + '1200/' + image.fileName})`
+      )
+    .inner.mobile
+      .image(
+        style!=`background-image: url(${imagePath + '800/' +  image.fileName})`)

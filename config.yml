@@ -1,0 +1,70 @@
+general:
+  title: "Patrick Laing"
+  description: "Patrick Laing is a London based product design studio crafting ranges of innovative of jewellery, industrial product, homeware and retail design."
+  image: "patrick_laing.png"
+  keywords: "patrick laing, industrial design, design, rings, product design, plume, mudguard"
+  url: "https://patricklaing.com"
+imagePath: "../assets/images/"
+left:
+  title: "Products"
+  videos:
+  - 'https://player.vimeo.com/external/352804677.sd.mp4?s=c7b3dae956ba1690df332b61e5282bc5fc3cdfe2&profile_id=165'
+  - 'https://player.vimeo.com/external/352805980.sd.mp4?s=6dfcc0c7dbb846da1d0267a536d68c9bfd9bd593&profile_id=165'
+  - 'https://player.vimeo.com/external/352802822.sd.mp4?s=21ed24fe23de19128eebf99c32d0a0586a52544f&profile_id=165'
+  - 'https://player.vimeo.com/external/352803100.sd.mp4?s=709f495f9fbb9142b06c91fa02a04503499f2690&profile_id=165'
+  - 'https://player.vimeo.com/external/350055522.sd.mp4?s=6530300b0408eff3f33b80b754c698b975a64309&profile_id=165'
+  - 'https://player.vimeo.com/external/350055495.sd.mp4?s=55ad3bd99cb6c990f06ddd45d2deec0a570232f1&profile_id=165'
+  - 'https://player.vimeo.com/external/352803921.sd.mp4?s=121045b2845020a6fe13f30cbb7fb6a8ab90ce27&profile_id=165'
+  - 'https://player.vimeo.com/external/352803209.sd.mp4?s=db32a4ebfb58f892cf089f106f24519629bcd6bf&profile_id=165'
+  - 'https://player.vimeo.com/external/352803182.sd.mp4?s=8126d612594393bee84d29eeede9a12a1ba09e2d&profile_id=165'
+  images:
+    - fileName: "EDITED_Patrick_Laing_Sketchbook_Two.jpg"
+    - fileName: "EDITED_Patrick_Laing_Sketchbook.jpg"
+      cover: true
+    - fileName: "EDITED>Patrick_Laing_exhibition_stands_adidas_.jpg"
+      cover: true
+    - fileName: "EDITED>Patrick_Laing_store_shop_design_adidas_one.jpg"
+      cover: true
+    - fileName: "EDITED>Patrick_Laing_store_shop_design_adidas_two.jpg"
+    - fileName: "Gold+winged+figure+trophy+design+face.jpg"
+      cover: true
+    - fileName: "Gold+Winged+Figure+Trophy+design+front.jpg"
+      cover: true
+    - fileName: "Gold+Winged+figure+trophy+design+rear.jpg"
+      cover: true
+    - fileName: "Making_2_Patrick_Laing_Film_Award.jpg"
+    - fileName: "Making_3_Patrick_Laing_Film_Award.jpg"
+      cover: true
+    - fileName: "O2O2-Side-Large-Patrick-Laing.jpg"
+      cover: true
+    - fileName: "Pinhole_Making.jpg"
+      cover: true
+    - fileName: "Plume-Outdoor-Unfurl-Brick.jpg"
+    - fileName: "SNV37449.jpg"
+    - fileName: "The_Flying_Skirt_TEST.jpg"
+    - fileName: "Trophy_scans_1.jpg"
+      cover: true
+    - fileName: "Trophy_scans_2.jpg"
+      cover: true
+right:
+  title: "Rings"
+  videos:
+    - 'https://player.vimeo.com/external/352805739.sd.mp4?s=64f13b8913230f14c8605878a2e7969c7c7ffd75&profile_id=165'
+  images:
+    - fileName: 'surface_0003.jpg'
+    - fileName: 'surface_0002.jpg'
+    - fileName: 'surface_0001.jpg'
+    - fileName: 'surface_0000.jpg'
+
+contact:
+  linkText: "Contact"
+  email: "patrick@patricklaing.com"
+
+credits:
+  -
+    linkText: "Design by Ongoing Projects"
+    linkDestination: "https://ongoingprojects.co"
+  -
+    linkText: "Built by Laura Brown"
+    linkDestination: "https://laurabrown.xyz"
+
