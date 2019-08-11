@@ -7,10 +7,26 @@ doctype html
 html(lang="en")
   head
     <link rel="shortcut icon" type="image/png" href="../assets/favicon.png"/>
+    title= general.title
+
+    <!-- For Google -->
+    meta(name="description" content=general.description)
+    meta(name="keywords" content=general.keywords)
+
+    <!-- For Facebook -->
+    meta(property="og:title" content=general.title)
+    meta(property="og:image" content="")
+    meta(property="og:url" content=general.url)
+    meta(property="og:description" content=general.description)
+
+    <!-- For Twitter -->
+    meta(name="twitter:card" content="summary")
+    meta(name="twitter:title" content=general.title)
+    meta(name="twitter:description" content=general.description)
+    meta(name="twitter:image" content="")
+
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(charset="utf-8")
-    title #{general.title}
-    description #{general.description}
 
   body
     .split

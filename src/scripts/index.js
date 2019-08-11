@@ -38,7 +38,6 @@ function updateSubtitle (e) {
 const fadeDuration = 300;
 
 function fadeSubtitle(half) {
-  debugger;
   const $allSubtitles = $(selectors.sectionTitle, $container)
   if (half) {
     const $newSubtitles = $allSubtitles.filter('.' + half);

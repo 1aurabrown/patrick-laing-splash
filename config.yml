@@ -1,7 +1,9 @@
 general:
   title: "Patrick Laing"
-  metaDescription: "The website of Patrick Laing"
-  metaImage: ""
+  description: "The website of Patrick Laing"
+  image: ""
+  keywords: "patrick laing, industrial design, design, rings"
+  url: "https://patricklaing.com"
 imagePath: "../assets/images/"
 left:
   title: "Products"
