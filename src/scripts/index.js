@@ -31,31 +31,26 @@ function isDesktop() {
   return window.outerWidth >= 768;
 }
 function updateSubtitle (e) {
-  const newTitle = e.currentTarget.getAttribute('data-title')
-  fadeSubtitle(newTitle)
+  const half = e.currentTarget.getAttribute('data-section')
+  fadeSubtitle(half)
 }
 
-function fadeDuration(text) {
-  if (text.length > 0) {
-    return 300
+const fadeDuration = 300;
+
+function fadeSubtitle(half) {
+  debugger;
+  const $allSubtitles = $(selectors.sectionTitle, $container)
+  if (half) {
+    const $newSubtitles = $allSubtitles.filter('.' + half);
+    if ( $newSubtitles.is(':visible')) { return }
+    const $oldSubtitles = $allSubtitles.not('.' + half);
+    $oldSubtitles.stop().fadeOut(fadeDuration, "linear")
+    $oldSubtitles.promise().done(function() {
+      $newSubtitles.fadeIn(fadeDuration, "linear")
+    })
   } else {
-    return 0
+    $allSubtitles.filter(':visible').fadeOut(fadeDuration, "linear")
   }
-}
-
-function fadeSubtitle(newTitle) {
-  const $subtitles = $(selectors.sectionTitle, $container);
-  const oldTitle = $subtitles.html();
-  if ( oldTitle == newTitle) { return }
-
-  const fadeInDuration = fadeDuration(newTitle)
-  const fadeOutDuration = fadeDuration(oldTitle)
-
-  $subtitles.stop().fadeTo(fadeOutDuration, 0, "linear")
-  $subtitles.promise().done(function() {
-    $subtitles.html(newTitle)
-    $subtitles.fadeTo(fadeInDuration, 1, "linear")
-  })
 }
 
 function mouseEntered(e) {

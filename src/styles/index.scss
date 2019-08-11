@@ -84,35 +84,21 @@ body {
   text-transform: uppercase;
 }
 .header {
+  .subtitle {
+    display: none;
+    @include desktop() {
+      margin-top: .8rem;
+
+    }
+    @include mobile() {
+      margin-top: .6rem;
+    }
+  }
   &--serif {
     @include serif();
   }
   &--sans-serif {
     @include sans-serif();
-  }
-  @include mobile() {
-    &--sans-serif {
-      font-size: 3.0rem;
-      line-height: 3.4rem;
-      letter-spacing: .07em;
-    }
-    &--serif {
-      font-size: 2.7rem;
-      line-height: 3.4rem;
-      letter-spacing: .06em;
-    }
-  }
-  @include desktop() {
-    &--sans-serif {
-      font-size: 5.2rem;
-      line-height: 5.7rem;
-      letter-spacing: .07em;
-    }
-    &--serif {
-      font-size: 4.8rem;
-      line-height: 5.7rem;
-      letter-spacing: .06em;
-    }
   }
 }
 
@@ -138,6 +124,16 @@ a, a:visited, a:active, a:focus {
   bottom: 0;
   position: fixed;
   overflow: hidden;
+
+  svg {
+    display: block;
+    @include desktop() {
+      height: 4.8rem;
+    }
+    @include mobile() {
+      height: 2.8rem;
+    }
+  }
   &__inner {
     position: absolute;
     top: 0;
@@ -183,7 +179,7 @@ a, a:visited, a:active, a:focus {
   &.front {
     z-index: 1;
   }
-  &__text, &__footer {
+  &__text, &__contact {
     width: 100vw;
     z-index: 1;
     position: absolute;
@@ -239,7 +235,7 @@ a, a:visited, a:active, a:focus {
     }
   }
 
-  &__footer {
+  &__contact {
     bottom: calc(var(--padding) - .8rem)
   }
 }

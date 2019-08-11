@@ -1,4 +1,3 @@
-include ./mixins/footer.pug
 include ./mixins/image.pug
 include ./mixins/video.pug
 include ./mixins/credit.pug
@@ -15,29 +14,41 @@ html(lang="en")
 
   body
     .split
-      .header.header--sans-serif.split-half.split-half--left('data-title'!=left.title)
+      header.header.header--sans-serif.split-half.split-half--left('data-section'='products')
         .split-half__inner
           .split-half__text
-            h1.split-half__page-title= general.title
-            h2.split-half__section-title.js-section-title
+            h1.split-half__page-title
+              include ../assets/svg/pl-sans.svg
+            .split-half__section-title
+              h2.subtitle.products.js-section-title
+                include ../assets/svg/products-sans.svg
+              h2.subtitle.rings.js-section-title
+                include ../assets/svg/rings-sans.svg
           .split-half__media
             each image, index in left.images
               +image(imagePath, image)
             each videoURL in left.videos
               +video(videoURL)
-          +footer(contact)
+          a.split-half__contact(href!='mailto:'+contact.email target='_blank')
+            include ../assets/svg/contact-sans.svg
 
-      .header.header--serif.split-half.split-half--right('data-title'!=right.title)
+      .header.header--serif.split-half.split-half--right('data-section'='rings')
         .split-half__inner
           .split-half__text
-            div.split-half__page-title= general.title
-            h2.split-half__section-title.js-section-title
+            div.split-half__page-title
+              include ../assets/svg/pl-serif.svg
+            .split-half__section-title
+              .subtitle.products.js-section-title
+                include ../assets/svg/products-serif.svg
+              .subtitle.rings.js-section-title
+                include ../assets/svg/rings-serif.svg
           .split-half__media
             each image, index in right.images
               +image(imagePath, image)
             each videoURL in right.videos
               +video(videoURL)
-          +footer(contact)
+          a.split-half__contact(href!='mailto:'+contact.email target='_blank')
+            include ../assets/svg/contact-serif.svg
     .credits
       .credits__inner
         each credit in credits
