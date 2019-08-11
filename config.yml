@@ -8,14 +8,15 @@ imagePath: "../assets/images/"
 left:
   title: "Products"
   videos:
-    - 'https://player.vimeo.com/external/352805980.hd.mp4?s=598441d86cabeb3dd01f3c6687be6be7c95e71a4&profile_id=174'
-    - 'https://player.vimeo.com/external/352804677.hd.mp4?s=718517eea76546bbe16954974175cc7229a671c0&profile_id=174'
-    - 'https://player.vimeo.com/external/352803921.hd.mp4?s=2895814bb45f2fe13384fe46dd56e647b598e727&profile_id=174'
-    - 'https://player.vimeo.com/external/352803209.hd.mp4?s=9eb67b52d10865b7774c31002b6e7a66b062c6b2&profile_id=174'
-    - 'https://player.vimeo.com/external/352803182.hd.mp4?s=dcba7118e81eb3dfe67800506a9f1b323620a700&profile_id=174'
-    - 'https://player.vimeo.com/external/352803100.hd.mp4?s=7e2024d407dde64072d5875be80d493d142df416&profile_id=174'
-    - 'https://player.vimeo.com/external/352802822.hd.mp4?s=0fd2713812ee5cad6889bbc594e06a90f232a5b8&profile_id=174'
-    - 'https://player.vimeo.com/external/350055495.hd.mp4?s=77485a32b2cdfeaa26fa5869cdf2032751ad1c10&profile_id=174'
+  - 'https://player.vimeo.com/external/352804677.sd.mp4?s=c7b3dae956ba1690df332b61e5282bc5fc3cdfe2&profile_id=165'
+  - 'https://player.vimeo.com/external/352805980.sd.mp4?s=6dfcc0c7dbb846da1d0267a536d68c9bfd9bd593&profile_id=165'
+  - 'https://player.vimeo.com/external/352802822.sd.mp4?s=21ed24fe23de19128eebf99c32d0a0586a52544f&profile_id=165'
+  - 'https://player.vimeo.com/external/352803100.sd.mp4?s=709f495f9fbb9142b06c91fa02a04503499f2690&profile_id=165'
+  - 'https://player.vimeo.com/external/350055522.sd.mp4?s=6530300b0408eff3f33b80b754c698b975a64309&profile_id=165'
+  - 'https://player.vimeo.com/external/350055495.sd.mp4?s=55ad3bd99cb6c990f06ddd45d2deec0a570232f1&profile_id=165'
+  - 'https://player.vimeo.com/external/352803921.sd.mp4?s=121045b2845020a6fe13f30cbb7fb6a8ab90ce27&profile_id=165'
+  - 'https://player.vimeo.com/external/352803209.sd.mp4?s=db32a4ebfb58f892cf089f106f24519629bcd6bf&profile_id=165'
+  - 'https://player.vimeo.com/external/352803182.sd.mp4?s=8126d612594393bee84d29eeede9a12a1ba09e2d&profile_id=165'
   images:
     - fileName: "EDITED_Patrick_Laing_Sketchbook_Two.jpg"
     - fileName: "EDITED_Patrick_Laing_Sketchbook.jpg"
@@ -48,7 +49,7 @@ left:
 right:
   title: "Rings"
   videos:
-    - 'https://player.vimeo.com/external/352805739.hd.mp4?s=0c6b42dee1f0d8264fed4047423e0303bea28094&profile_id=174'
+    - 'https://player.vimeo.com/external/352805739.sd.mp4?s=64f13b8913230f14c8605878a2e7969c7c7ffd75&profile_id=165'
   images:
     - fileName: 'surface_0003.jpg'
     - fileName: 'surface_0002.jpg'
