@@ -1,8 +1,8 @@
 general:
   title: "Patrick Laing"
-  description: "The website of Patrick Laing"
-  image: ""
-  keywords: "patrick laing, industrial design, design, rings, product design"
+  description: "Patrick Laing is a London based product design studio crafting ranges of innovative of jewellery, industrial product, homeware and retail design."
+  image: "patrick_laing.png"
+  keywords: "patrick laing, industrial design, design, rings, product design, plume, mudguard"
   url: "https://patricklaing.com"
 imagePath: "../assets/images/"
 left:
