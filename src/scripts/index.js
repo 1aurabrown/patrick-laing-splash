@@ -145,7 +145,7 @@ class CycleMedia {
     var $mediaItems = this.$el.children()
     if ($mediaItems.length > 1) {
       $mediaItems = $mediaItems.filter((index, el) => {
-        if (el.matches(selectors.video) && el.readyState < 3) { return false; }
+        if (el.matches(selectors.video) && (isTouch() || el.readyState < 3)) { return false; }
         if (el.matches(selectors.activeMediaItem)) { return false; }
         return true;
       })
@@ -166,6 +166,9 @@ class CycleMedia {
   }
 }
 
+function isTouch() {
+  return 'ontouchstart' in window;
+}
 
 
 $(document).ready(() => {
@@ -176,9 +179,11 @@ $(document).ready(() => {
     $container.one('mousemove', selectors.half, updateSubtitle)
     $container.on('mouseleave', selectors.half, mouseLeft)
   }
-  $('video', $container).each(function(index, el) {
-    el.load();
-  })
+  if (isTouch()) {
+    $('video', $container).each(function(index, el) {
+      el.load();
+    })
+  }
   $container.on('click', selectors.half, didClick)
   $(selectors.media, $container).each(function() {
     new CycleMedia(this).cycle()
