@@ -31,22 +31,22 @@ $transition-duration: .3s;
 }
 @font-face {
   font-family: "SangBleu Kingdom Light";
-  src: url('../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.eot');
-  src: url('../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.eot#iefix') format("embedded-opentype"),
-       url('../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.woff2') format("woff2"),
-       url('../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.woff') format("woff"),
-       url('../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.ttf') format("truetype");
+  src: url('../../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.eot');
+  src: url('../../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.eot#iefix') format("embedded-opentype"),
+       url('../../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.woff2') format("woff2"),
+       url('../../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.woff') format("woff"),
+       url('../../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.ttf') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "SuisseIntl Light S";
-  src: url('../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.eot');
-  src: url('../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.eot#iefix') format("embedded-opentype"),
-       url('../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.woff2') format("woff2"),
-       url('../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.woff') format("woff"),
-       url('../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.ttf') format("truetype");
+  src: url('../../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.eot');
+  src: url('../../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.eot#iefix') format("embedded-opentype"),
+       url('../../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.woff2') format("woff2"),
+       url('../../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.woff') format("woff"),
+       url('../../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.ttf') format("truetype");
   font-weight: normal;
   font-style: normal;
 }

@@ -7,10 +7,12 @@ include ./mixins/credit.pug
 doctype html
 html(lang="en")
   head
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png"/>
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(charset="utf-8")
     title #{general.title}
     description #{general.description}
+
   body
     .split
       .header.header--sans-serif.split-half.split-half--left('data-title'!=left.title)

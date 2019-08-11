@@ -10,8 +10,8 @@
     "url": "https://github.com/1aurabrown/patrick-laing-splash.git"
   },
   "scripts": {
-    "start": "parcel src/index.pug src/admin.pug --open -d dev --no-cache --log-level 4",
-    "build": "parcel build src/index.pug src/admin.pug --public-url ./ -d dist"
+    "start": "parcel src/index.pug --open -d dev --no-cache --log-level 4",
+    "build": "parcel build src/index.pug --public-url ./ -d dist"
   },
   "devDependencies": {
     "cssnano": "^4.1.10",

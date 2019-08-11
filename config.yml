@@ -2,7 +2,7 @@ general:
   title: "Patrick Laing"
   metaDescription: "The website of Patrick Laing"
   metaImage: ""
-imagePath: "./assets/images/"
+imagePath: "../assets/images/"
 left:
   title: "Products"
   videos:
@@ -48,10 +48,10 @@ right:
   videos:
     - 'https://player.vimeo.com/external/352805739.hd.mp4?s=0c6b42dee1f0d8264fed4047423e0303bea28094&profile_id=174'
   images:
-    - fileName: '1.jpg'
-    - fileName: '2.jpg'
-    - fileName: '3.jpg'
-    - fileName: '4.jpg'
+    - fileName: 'surface_0003.jpg'
+    - fileName: 'surface_0002.jpg'
+    - fileName: 'surface_0001.jpg'
+    - fileName: 'surface_0000.jpg'
 
 contact:
   linkText: "Contact"
