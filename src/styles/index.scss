@@ -83,12 +83,12 @@ body {
   font-family: "SuisseIntl Light S", sans-serif;
   text-transform: uppercase;
 }
-.header {
+.split-half {
 
-  &--serif {
+  &--right {
     @include serif();
   }
-  &--sans-serif {
+  &--left {
     @include sans-serif();
   }
 }
@@ -242,7 +242,7 @@ a, a:visited, a:active, a:focus {
   }
 
   &__contact {
-    bottom: calc(var(--padding) - .8rem)
+    bottom: calc(var(--padding) - .5rem)
   }
 }
 .credits {
@@ -257,7 +257,7 @@ a, a:visited, a:active, a:focus {
   font-size: .9rem;
   letter-spacing: .15625rem;
   height: var(--peek);
-  bottom: var(--padding);
+  bottom: calc(var(--padding));
   position: fixed;
   @include mobile() {
     letter-spacing: 0.125rem;
