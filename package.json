@@ -14,10 +14,11 @@
     "build": "parcel build src/index.pug --public-url ./ -d dist"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.0.0",
     "cssnano": "^4.1.10",
     "node-sass": "^4.12.0",
     "parcel-bundler": "^1.12.3",
-    "parcel-plugin-imagemin": "^3.0.0",
+    "parcel-plugin-html": "^1.0.22",
     "parcel-plugin-ogimage": "^1.1.0",
     "pug": "^2.0.4",
     "pug-lexer": "^4.1.0"
@@ -25,10 +26,7 @@
   "dependencies": {
     "autoprefixer": "^9.6.1",
     "jquery": "^3.4.1",
-    "js-yaml": "^3.13.1"
-  },
-  "staticFiles": {
-    "staticPath": "assets",
-    "watcherGlob": "**"
+    "js-yaml": "^3.13.1",
+    "postcss-modules": "^1.4.1"
   }
 }

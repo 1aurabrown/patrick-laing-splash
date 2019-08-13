@@ -36,26 +36,29 @@ function updateSubtitle (e) {
 }
 
 const fadeDuration = 300;
-
+var animating = false;
 function fadeSubtitle(half) {
   const $allSubtitles = $(selectors.sectionTitle, $container);
-
-
+  animating = true
   if (half) {
     const $newSubtitles = $allSubtitles.filter("." + half);
     const $oldSubtitles = $allSubtitles.not("." + half);
     const fadeInDuration =  $newSubtitles.is(':visible') ? 0 : fadeDuration
     const fadeOutDuration = $oldSubtitles.is(':visible') ? fadeDuration : 0
     if ( $newSubtitles.is(':visible')) { return }
-    $allSubtitles.finish()
+    $allSubtitles.stop(true, true)
     $oldSubtitles.fadeTo(fadeOutDuration, 0, "linear", () => {
       $oldSubtitles.hide()
       $newSubtitles.show()
-      $newSubtitles.fadeTo(fadeInDuration, 1, "linear")
+      $newSubtitles.fadeTo(fadeInDuration, 1, "linear", () => {
+        animating = false
+      })
     })
   } else {
+    $allSubtitles.stop(true, true)
     $allSubtitles.filter(':visible').fadeTo(fadeDuration, 0, "linear", () => {
       $allSubtitles.hide()
+      animating = false
     })
   }
 }
@@ -111,7 +114,7 @@ class CycleMedia {
     this.nextMedia = this.getNextMedia()
   }
   imageDuration() {
-    return Math.floor((3 * Math.random() + 4) * 1000)
+    return Math.floor((4 * Math.random() + 5) * 1000)
   }
   preloadImage(url) {
     var img=new Image();
@@ -145,7 +148,7 @@ class CycleMedia {
     var $mediaItems = this.$el.children()
     if ($mediaItems.length > 1) {
       $mediaItems = $mediaItems.filter((index, el) => {
-        if (el.matches(selectors.video) && (isTouch() || el.readyState < 3)) { return false; }
+        if (el.matches(selectors.video) && el.readyState < 4) { return false; }
         if (el.matches(selectors.activeMediaItem)) { return false; }
         return true;
       })
@@ -172,18 +175,16 @@ function isTouch() {
 
 
 $(document).ready(() => {
-  // codedBy();
+  codedBy();
   $container = $(selectors.container);
   if (!isTouchDevice) {
     $container.on('mouseenter', selectors.half, mouseEntered)
     $container.one('mousemove', selectors.half, updateSubtitle)
     $container.on('mouseleave', selectors.half, mouseLeft)
   }
-  if (isTouch()) {
-    $('video', $container).each(function(index, el) {
-      el.load();
-    })
-  }
+  $('video', $container).each(function(index, el) {
+    el.load();
+  })
   $container.on('click', selectors.half, didClick)
   $(selectors.media, $container).each(function() {
     new CycleMedia(this).cycle()

@@ -12,7 +12,6 @@ left:
   - 'https://player.vimeo.com/external/352805980.sd.mp4?s=6dfcc0c7dbb846da1d0267a536d68c9bfd9bd593&profile_id=165'
   - 'https://player.vimeo.com/external/352802822.sd.mp4?s=21ed24fe23de19128eebf99c32d0a0586a52544f&profile_id=165'
   - 'https://player.vimeo.com/external/352803100.sd.mp4?s=709f495f9fbb9142b06c91fa02a04503499f2690&profile_id=165'
-  - 'https://player.vimeo.com/external/350055522.sd.mp4?s=6530300b0408eff3f33b80b754c698b975a64309&profile_id=165'
   - 'https://player.vimeo.com/external/350055495.sd.mp4?s=55ad3bd99cb6c990f06ddd45d2deec0a570232f1&profile_id=165'
   - 'https://player.vimeo.com/external/352803921.sd.mp4?s=121045b2845020a6fe13f30cbb7fb6a8ab90ce27&profile_id=165'
   - 'https://player.vimeo.com/external/352803209.sd.mp4?s=db32a4ebfb58f892cf089f106f24519629bcd6bf&profile_id=165'
@@ -46,6 +45,8 @@ left:
       cover: true
     - fileName: "Trophy_scans_2.jpg"
       cover: true
+    - fileName: "2of3_Socks_bed&couch.jpg"
+    - fileName: "Adidias_shop_No.9_Patrick_Laing.jpg"
 right:
   title: "Rings"
   videos:
