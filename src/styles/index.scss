@@ -252,7 +252,7 @@ a, a:visited, a:active, a:focus {
   font-size: .9rem;
   letter-spacing: .15625rem;
   height: var(--peek);
-  bottom: calc(var(--padding) + (.107 * var(--line-height)));
+  bottom: calc(var(--padding) + (.1 * var(--line-height)) - 1px);
   position: fixed;
   @include mobile() {
     letter-spacing: 0.125rem;
