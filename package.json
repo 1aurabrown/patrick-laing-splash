@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "autoprefixer": "^9.6.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "js-yaml": "^3.13.1",
     "postcss-modules": "^1.4.1"
   }
