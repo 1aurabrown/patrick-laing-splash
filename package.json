@@ -16,7 +16,7 @@
   "devDependencies": {
     "@babel/preset-react": "^7.0.0",
     "cssnano": "^4.1.10",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "parcel-bundler": "^1.12.3",
     "parcel-plugin-html": "^1.0.22",
     "parcel-plugin-ogimage": "^1.1.0",
