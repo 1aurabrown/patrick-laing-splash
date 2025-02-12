@@ -1,0 +1,1 @@
+Using https://github.com/ourystd/parcel-pug-scss-starter setup as of February 2025.
