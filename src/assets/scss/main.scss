@@ -1,0 +1,287 @@
+@mixin desktop {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+:root {
+  --peek: 8rem;
+  --padding: 1.5rem;
+  --line-height: 4.8rem;
+  --transition-duration: .3s;
+}
+
+@include mobile() {
+  :root {
+    --peek: 4.5rem;
+    --padding: 1.1rem;
+    --line-height: 2.8rem;
+  }
+}
+@font-face {
+  font-family: "SangBleu Kingdom Light";
+  src: url('../../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.eot');
+  src: url('../../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.eot#iefix') format("embedded-opentype"),
+       url('../../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.woff2') format("woff2"),
+       url('../../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.woff') format("woff"),
+       url('../../assets/fonts/serif/S/SangBleuKingdom-Light-WebS.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SuisseIntl Light S";
+  src: url('../../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.eot');
+  src: url('../../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.eot#iefix') format("embedded-opentype"),
+       url('../../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.woff2') format("woff2"),
+       url('../../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.woff') format("woff"),
+       url('../../assets/fonts/sans-serif/S/SuisseIntl-Light-WebS.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+html, body, {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 100%;
+  width: 100%;
+  background: black;
+  position: fixed;
+  overflow: hidden;
+}
+html {
+  font-size: 62.5%
+}
+body {
+  color: white;
+  font-size: 6rem;
+  white-space: nowrap;
+}
+@mixin serif() {
+  font-family: "SangBleu Kingdom Light", serif;
+  text-transform: uppercase;
+}
+@mixin sans-serif() {
+  font-family: "SuisseIntl Light S", sans-serif;
+  text-transform: uppercase;
+}
+.split-half {
+
+  &--right {
+    @include serif();
+  }
+  &--left {
+    @include sans-serif();
+  }
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+  font-size: unset;
+  line-height: unset;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+a, a:visited, a:active, a:focus {
+  color: inherit;
+  text-decoration: none;
+}
+.split {
+  height: 100%;
+}
+.split-half {
+  transition: all var(--transition-duration) ease-out;
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  overflow: hidden;
+  &__section-title {
+    @include desktop() {
+      margin-top: .8rem;
+
+    }
+    @include mobile() {
+      margin-top: .6rem;
+    }
+    .subtitle {
+      display: none;
+
+    }
+  }
+  svg {
+    display: block;
+    @include desktop() {
+      height: var(--line-height);
+    }
+    @include mobile() {
+      height: var(--line-height);
+    }
+  }
+  &__inner {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100%;
+  }
+  &.full-width {
+    cursor: default;
+  }
+  &--left {
+    left: 0;
+    right: 50%;
+    .split-half__media {
+      filter: brightness(93%);
+      padding-right: var(--peek);
+    }
+    .split-half__inner {
+      left: 0;
+    }
+    &.full-width {
+      right: var(--peek);
+      &.shrink {
+        right: calc(var(--peek) * 1.25);
+      }
+    }
+  }
+  &--right {
+    right: 0;
+    left: 50%;
+    .split-half__inner {
+      right: 0;
+    }
+    .split-half__media {
+      padding-left: var(--peek);
+    }
+    &.full-width {
+      left: var(--peek);
+      &.shrink {
+        left: calc(var(--peek) * 1.25);
+      }
+    }
+  }
+  &.front {
+    z-index: 1;
+  }
+  &__text, &__contact {
+    width: 100vw;
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__text {
+    top: var(--padding);
+  }
+  &__media {
+    height: 100%;
+    width: 100vw;
+    &__item {
+      background: black;
+      height: 100%;
+      width: calc(100% + 4px);
+      left: -2px;
+      position: relative;
+      display: none;
+      &--image {
+        .inner.mobile{
+          @include desktop() {
+            display: none;
+          }
+        }
+        .inner.desktop {
+          @include mobile() {
+            display: none;
+          }
+        }
+        .inner, .image {
+          width: 100%;
+          height: 100%;
+        }
+        .image {
+          background-position: center center;
+          background-repeat: repeat;
+          background-size: auto 100%;
+        }
+
+        &.cover .image {
+          background-size: cover;
+        }
+      }
+
+
+      &--video {
+        object-fit: cover;
+      }
+      &--active {
+        display: block;
+      }
+    }
+  }
+
+  &__contact {
+    bottom: var(--padding)
+  }
+}
+.video {
+  position: absolute;
+  aspect-ratio: calc(1 / .5625);
+  min-width: 100%;
+  height: auto;
+  min-height: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+.credits {
+  @include serif();
+  z-index: 2;
+  transform: rotateZ(-90deg);
+  transform-origin: bottom left;
+  line-height: 1.3;
+  left: 100%;
+  display: flex;
+  align-items: center;
+  font-size: .9rem;
+  letter-spacing: .15625rem;
+  height: var(--peek);
+  bottom: calc(var(--padding) + (.1 * var(--line-height)));
+  position: fixed;
+  @include mobile() {
+    letter-spacing: 0.125rem;
+  }
+  &__credit {
+    display: inline-block;
+    margin-right: 1.5rem;
+    @include mobile() {
+      display: block;
+    }
+  }
+}

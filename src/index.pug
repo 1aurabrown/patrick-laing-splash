@@ -1,12 +1,12 @@
 include ./mixins/image.pug
 include ./mixins/video.pug
 include ./mixins/credit.pug
-//- include ./includes/coded-by.pug
 
 doctype html
 html(lang="en")
   head
-    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png"/>
+    link(rel="stylesheet", href="./assets/scss/main.scss")
+    <link rel="shortcut icon" type="image/png" href="./assets/favicon.png"/>
     title= general.title
 
     <!-- For Google -->
@@ -28,40 +28,41 @@ html(lang="en")
         .split-half__inner
           .split-half__text
             h1.split-half__page-title
-              include ../assets/svg/pl-sans.svg
+              include ./assets/svg/pl-sans.svg
             .split-half__section-title
               h2.subtitle.products.js-section-title
-                include ../assets/svg/products-sans.svg
+                include ./assets/svg/products-sans.svg
               h2.subtitle.rings.js-section-title
-                include ../assets/svg/rings-sans.svg
+                include ./assets/svg/rings-sans.svg
           .split-half__media
             each image, index in left.images
               +image(imagePath, image)
-            each videoURL in left.videos
-              +video(videoURL)
+            each video in left.videos
+              +video(video)
           a.split-half__contact(href!='mailto:'+contact.email target='_blank')
-            include ../assets/svg/contact-sans.svg
+            include ./assets/svg/contact-sans.svg
 
       .split-half.split-half--right('data-section'='rings')
         .split-half__inner
           .split-half__text
             div.split-half__page-title
-              include ../assets/svg/pl-serif.svg
+              include ./assets/svg/pl-serif.svg
             .split-half__section-title
               .subtitle.products.js-section-title
-                include ../assets/svg/products-serif.svg
+                include ./assets/svg/products-serif.svg
               .subtitle.rings.js-section-title
-                include ../assets/svg/rings-serif.svg
+                include ./assets/svg/rings-serif.svg
           .split-half__media
             each image, index in right.images
               +image(imagePath, image)
-            each videoURL in right.videos
-              +video(videoURL)
+            each video in right.videos
+              +video(video)
           a.split-half__contact(href!='mailto:'+contact.email target='_blank')
-            include ../assets/svg/contact-serif.svg
+            include ./assets/svg/contact-serif.svg
     .credits
       .credits__inner
         each credit in credits
           +credit(credit)
 
-    script(src="scripts/index.js")
+    script(src="./assets/js/index.js" type="module")
+    script(src="https://player.vimeo.com/api/player.js")

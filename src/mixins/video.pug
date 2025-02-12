@@ -1,3 +1,4 @@
-mixin video(videoURL)
-  video.split-half__media__item.split-half__media__item--video(muted preload="none" playsinline  data-type="video")
-    source(src!=videoURL, type="video/mp4")
+mixin video(video)
+  div.split-half__media__item.split-half__media__item--video(data-type="video")
+    div.video
+      iframe(src!="https://player.vimeo.com/video/"+video.id+"?background=1")
